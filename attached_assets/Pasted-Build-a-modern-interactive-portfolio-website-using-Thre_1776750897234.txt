@@ -1,0 +1,193 @@
+Build a modern interactive portfolio website using Three.js (WebGL) with smooth animations and a premium dark UI.
+
+The goal is to create a visually impressive portfolio that feels like a high-end designer website, while keeping performance stable and code simple.
+
+TECH STACK:
+
+* HTML, CSS, JavaScript
+* Three.js (for WebGL background)
+* GSAP + ScrollTrigger (for animations)
+* No frameworks (no React)
+
+---
+
+GLOBAL DESIGN SYSTEM:
+
+* Background: #0B0B0F
+
+* Secondary background: #12121A
+
+* Accent gradient: #FF3D77 → #6C5CE7
+
+* Text primary: #FFFFFF
+
+* Text secondary: #A0A0B2
+
+* Border: rgba(255,255,255,0.08)
+
+* Font: Inter / system sans-serif
+
+* Border radius: 16px–24px
+
+* Smooth spacing (section padding: 100px+)
+
+---
+
+WEBGL (THREE.JS) BACKGROUND:
+
+* Fullscreen canvas fixed in background
+* Create a simple floating 3D scene:
+
+  * 3–5 abstract spheres or blobs
+  * Use MeshStandardMaterial (matte + slight metalness)
+  * Soft lighting (ambient + point light)
+* Objects should:
+
+  * Slowly rotate
+  * Float gently (sin wave motion)
+* Mouse movement:
+
+  * Slight parallax effect (camera shifts slightly)
+* Keep polygon count LOW for performance
+
+---
+
+HERO SECTION:
+
+* Fullscreen (100vh)
+
+* Center-left aligned content:
+  Heading:
+  “Hii, I am Satwik — A Visual Overthinker Designer”
+
+* Apply gradient (pink → purple) ONLY on “Overthinker”
+
+* Subtext:
+  “I design clean, interactive, and visually engaging digital experiences.”
+
+* Add smooth entrance animation:
+
+  * Fade + translateY using GSAP
+
+---
+
+ABOUT / PHILOSOPHY:
+
+* Short paragraph
+* Clean typography
+* Fade-in on scroll
+
+---
+
+INTERACTION CARDS SECTION:
+
+* 3–4 cards in grid
+* Cards have:
+
+  * Dark background (#12121A)
+  * Rounded corners
+  * Subtle border
+* Hover:
+
+  * Scale 1.03
+  * Soft glow using accent color
+* Optional:
+
+  * Slight tilt effect (mouse-based)
+
+---
+
+FEATURED WORK:
+
+* Large horizontal cards
+* Image background + overlay text
+* Hover:
+
+  * Image zoom slightly
+  * Text fades in
+
+---
+
+CONTACT SECTION:
+
+* Split layout:
+
+LEFT:
+
+* Simple card:
+
+  * “Mail”
+  * “LinkedIn”
+  * “Instagram”
+
+RIGHT:
+
+* Chat-style UI:
+
+  * Static message:
+    “Hey Satwik, I loved your work…”
+
+* Subtle hover movement
+
+* Keep it SIMPLE (no broken interactions)
+
+---
+
+CURSOR:
+
+* Custom circular cursor
+* Follows mouse smoothly (GSAP)
+* On hover:
+
+  * Scale up
+  * Add slight glow
+
+---
+
+SCROLL:
+
+* Enable smooth scroll feel
+* Use GSAP ScrollTrigger:
+
+  * Fade-in sections
+  * Slight upward motion
+
+---
+
+ANIMATION RULES:
+
+* Use easing: power3.out
+* No abrupt movement
+* Keep everything smooth and minimal
+* Avoid over-animation
+
+---
+
+PERFORMANCE RULES:
+
+* Keep Three.js scene lightweight
+* No heavy textures
+* Limit objects to 3–5 max
+* Ensure 60fps smoothness
+
+---
+
+OUTPUT:
+
+* Clean folder structure:
+
+  * index.html
+  * style.css
+  * script.js
+* All code working and connected
+* No placeholder junk
+* Fully responsive basic layout
+
+---
+
+IMPORTANT:
+
+* Do NOT overcomplicate
+* Do NOT add unnecessary features
+* Focus on smoothness, layout, and stability
+* Website should feel premium, not broken
