@@ -88,20 +88,75 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
   base.position.y = -0.9;
   group.add(base);
 
-  // Red push button (the "hold the red Button")
-  const btnGeom = new THREE.CylinderGeometry(0.35, 0.4, 0.25, 48);
-  const btnMat = new THREE.MeshStandardMaterial({ color: 0xe53935, roughness: 0.35, metalness: 0.2, emissive: 0x330000, emissiveIntensity: 0.3 });
-  const button = new THREE.Mesh(btnGeom, btnMat);
-  button.position.set(0, -0.6, 0);
-  group.add(button);
+  // ----- LIGHTER (Bic-style) -----
+  const lighter = new THREE.Group();
+  lighter.position.set(0, -0.55, 0);
+  group.add(lighter);
 
-  const btnRing = new THREE.Mesh(
-    new THREE.TorusGeometry(0.42, 0.03, 16, 64),
-    new THREE.MeshStandardMaterial({ color: 0x222226, metalness: 0.7, roughness: 0.3 })
-  );
-  btnRing.rotation.x = Math.PI / 2;
-  btnRing.position.set(0, -0.74, 0);
-  group.add(btnRing);
+  // Body — red rounded cylinder
+  const bodyMat = new THREE.MeshStandardMaterial({ color: 0xe53935, roughness: 0.25, metalness: 0.15, emissive: 0x220000, emissiveIntensity: 0.15 });
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 1.0, 48), bodyMat);
+  body.position.y = 0.15;
+  lighter.add(body);
+
+  // Fluid window (slim transparent strip)
+  const windowMat = new THREE.MeshStandardMaterial({ color: 0x4a0a0a, roughness: 0.1, metalness: 0.0, transparent: true, opacity: 0.55 });
+  const fluidWin = new THREE.Mesh(new THREE.CylinderGeometry(0.285, 0.285, 0.5, 48, 1, true, -Math.PI/4, Math.PI/2), windowMat);
+  fluidWin.position.y = -0.05;
+  lighter.add(fluidWin);
+
+  // Cap — silver/metal top
+  const capMat = new THREE.MeshStandardMaterial({ color: 0xcfcfd4, roughness: 0.25, metalness: 0.95 });
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.30, 0.28, 0.18, 32), capMat);
+  cap.position.y = 0.74;
+  lighter.add(cap);
+
+  // Inner chamber wall
+  const chamberMat = new THREE.MeshStandardMaterial({ color: 0x222226, roughness: 0.4, metalness: 0.7 });
+  const chamberOuter = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.20, 0.16, 32, 1, true), chamberMat);
+  chamberOuter.position.y = 0.92;
+  lighter.add(chamberOuter);
+
+  // Spark wheel
+  const wheelMat = new THREE.MeshStandardMaterial({ color: 0xa8a8b0, roughness: 0.55, metalness: 0.9 });
+  const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.10, 0.10, 0.12, 22), wheelMat);
+  wheel.rotation.z = Math.PI / 2;
+  wheel.position.set(-0.13, 0.95, 0);
+  lighter.add(wheel);
+
+  // Press lever (the gas release tab)
+  const leverMat = new THREE.MeshStandardMaterial({ color: 0xd5d5db, roughness: 0.35, metalness: 0.85 });
+  const lever = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.06, 0.20), leverMat);
+  lever.position.set(0.06, 0.93, 0);
+  lighter.add(lever);
+
+  // Flame (hidden until pressed) — stretched cone with emissive
+  const flameMat = new THREE.MeshStandardMaterial({
+    color: 0xffaa33, emissive: 0xff6600, emissiveIntensity: 1.6,
+    transparent: true, opacity: 0.95, roughness: 0.4
+  });
+  const flame = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.5, 24), flameMat);
+  flame.position.y = 1.3;
+  flame.scale.set(0, 0, 0);
+  lighter.add(flame);
+
+  // Inner blue flame core
+  const flameCoreMat = new THREE.MeshStandardMaterial({
+    color: 0x66aaff, emissive: 0x3377ff, emissiveIntensity: 1.4,
+    transparent: true, opacity: 0.9
+  });
+  const flameCore = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.28, 16), flameCoreMat);
+  flameCore.position.y = 1.2;
+  flameCore.scale.set(0, 0, 0);
+  lighter.add(flameCore);
+
+  // Flame point light (warm glow)
+  const flameLight = new THREE.PointLight(0xff7733, 0, 4, 2);
+  flameLight.position.set(0, 1.4, 0);
+  lighter.add(flameLight);
+
+  // Hit target for raycaster
+  const button = lever;
 
   // Floating cube
   const cube = new THREE.Mesh(
@@ -170,20 +225,25 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
     m.x = ((e.clientX - r.left) / r.width) * 2 - 1;
     m.y = -((e.clientY - r.top) / r.height) * 2 + 1;
     ray.setFromCamera(m, camera);
-    const hit = ray.intersectObject(button);
+    // Hit any part of the lighter
+    const hit = ray.intersectObjects([lever, body, cap, wheel]);
     if (hit.length) {
       isPressing = true;
-      gsap.to(button.scale, { y: 0.5, duration: 0.15, ease: 'power2.out' });
-      gsap.to(button.material, { emissiveIntensity: 1.2, duration: 0.2 });
+      // Press the lever down
+      gsap.to(lever.position, { y: 0.89, duration: 0.12, ease: 'power2.out' });
+      // Ignite the flame
+      gsap.to(flame.scale, { x: 1, y: 1, z: 1, duration: 0.25, ease: 'back.out(2)' });
+      gsap.to(flameCore.scale, { x: 1, y: 1, z: 1, duration: 0.25, ease: 'back.out(2)' });
+      gsap.to(flameLight, { intensity: 3.2, duration: 0.3 });
     }
   }
   function pointerUp() {
     if (!isPressing) return;
     isPressing = false;
-    gsap.to(button.scale, { y: 1, duration: 0.4, ease: 'elastic.out(1,0.5)' });
-    gsap.to(button.material, { emissiveIntensity: 0.3, duration: 0.5 });
-    // burst
-    gsap.fromTo(group.rotation, { y: group.rotation.y }, { y: group.rotation.y + Math.PI * 2, duration: 1.4, ease: 'power3.inOut' });
+    gsap.to(lever.position, { y: 0.93, duration: 0.3, ease: 'elastic.out(1,0.5)' });
+    gsap.to(flame.scale, { x: 0, y: 0, z: 0, duration: 0.35, ease: 'power3.in' });
+    gsap.to(flameCore.scale, { x: 0, y: 0, z: 0, duration: 0.35, ease: 'power3.in' });
+    gsap.to(flameLight, { intensity: 0, duration: 0.35 });
   }
   canvas.addEventListener('pointerdown', pointerDown);
   window.addEventListener('pointerup', pointerUp);
@@ -207,16 +267,20 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
     cone.position.y = 0.85 + Math.cos(t * 1.1 + 2) * 0.12;
     cone.rotation.y += 0.01;
 
-    if (isPressing) {
-      pressT = Math.min(pressT + 0.03, 1);
-    } else {
-      pressT = Math.max(pressT - 0.05, 0);
+    // Flame flicker while burning
+    if (flame.scale.y > 0.05) {
+      const flick = 0.92 + Math.sin(t * 30) * 0.05 + Math.sin(t * 47) * 0.03;
+      flame.scale.x = flick;
+      flame.scale.z = flick;
+      flame.scale.y = 0.85 + Math.sin(t * 24) * 0.12;
+      flameCore.scale.y = 0.9 + Math.sin(t * 28) * 0.1;
+      flame.position.x = Math.sin(t * 18) * 0.012;
+      flameLight.intensity = 2.8 + Math.sin(t * 30) * 0.6;
     }
-    group.scale.setScalar(1 + pressT * 0.1);
 
     // parallax
-    group.rotation.y += (pmx - (group.rotation.y - Math.floor(group.rotation.y / (Math.PI*2)) * (Math.PI*2)) * 0.01) * 0.005;
-    group.rotation.x += (pmy * -0.5 - group.rotation.x) * 0.04;
+    group.rotation.y += (pmx * 0.4 - group.rotation.y) * 0.04;
+    group.rotation.x += (pmy * -0.4 - group.rotation.x) * 0.04;
 
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
@@ -225,32 +289,29 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
 })();
 
 /* =========================================
-   RAIL ACTIVE STATE + SECTION SCROLL
+   WALLET — click to slide card out, copy phone
    ========================================= */
-document.querySelectorAll('.rail-btn[data-section]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const target = document.querySelector(btn.dataset.section);
-    if (target) lenis.scrollTo(target, { offset: -40 });
+(function initWallet() {
+  const wallet = document.getElementById('wallet');
+  if (!wallet) return;
+  wallet.addEventListener('click', (e) => {
+    if (e.target.classList.contains('wc-copy')) return; // copy button has its own handler
+    wallet.classList.toggle('is-open');
   });
-});
-
-const sections = ['#hero','#about','#work','#case','#why','#apart','#contact'];
-ScrollTrigger.create({
-  trigger: 'body',
-  start: 'top top',
-  end: 'bottom bottom',
-  onUpdate(self) {
-    const scrollY = window.scrollY + window.innerHeight * 0.3;
-    let activeIdx = 0;
-    sections.forEach((sel, i) => {
-      const el = document.querySelector(sel);
-      if (el && el.offsetTop <= scrollY) activeIdx = i;
-    });
-    document.querySelectorAll('.rail-btn').forEach((b) => b.classList.remove('rail-active'));
-    const all = document.querySelectorAll('.rail-btn');
-    if (all[activeIdx + 0]) all[activeIdx].classList.add('rail-active');
-  }
-});
+  const copyBtn = wallet.querySelector('.wc-copy');
+  const phone = wallet.querySelector('.wc-phone').textContent.trim();
+  copyBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    try { await navigator.clipboard.writeText(phone); } catch {}
+    copyBtn.classList.add('copied');
+    const original = copyBtn.textContent;
+    copyBtn.textContent = 'Copied';
+    setTimeout(() => {
+      copyBtn.classList.remove('copied');
+      copyBtn.textContent = original;
+    }, 1400);
+  });
+})();
 
 /* =========================================
    CASE STUDY CAROUSEL
@@ -383,7 +444,6 @@ gsap.from('.hero-tip', { y: -10, opacity: 0, duration: 1, ease: 'power2.out', de
 
 // Sidebar entrance
 gsap.from('.sidebar > *', { x: -20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
-gsap.from('.rail', { x: -20, opacity: 0, duration: 0.9, ease: 'power3.out', delay: 0.4 });
 gsap.from('.resume-btn', { y: -10, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.5 });
 
 // Signature parallax
