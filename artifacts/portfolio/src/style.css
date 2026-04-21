@@ -81,10 +81,11 @@ body {
    ========================================= */
 .layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   position: relative;
 }
+.sidebar { display: none !important; }
 
 /* SIDEBAR */
 .sidebar {
