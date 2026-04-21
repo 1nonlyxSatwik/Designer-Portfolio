@@ -3,194 +3,584 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Satwik — Visual Overthinker Designer</title>
-    <meta name="description" content="Satwik is a visual designer crafting clean, interactive, and visually engaging digital experiences." />
+    <title>Satwik R — Product Designer</title>
+    <meta name="description" content="Satwik R — Product Designer based in India. Industrial design, UI/UX, and AI-assisted product experiences." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
+  <body class="theme-light">
+    <!-- Three.js hero canvas -->
+    <canvas id="hero-canvas"></canvas>
 
+    <!-- Custom cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-dot" id="cursor-dot"></div>
 
-    <nav class="nav">
-      <div class="nav-logo">satwik<span>.</span></div>
-      <div class="nav-links">
-        <a href="#about" data-cursor="hover">About</a>
-        <a href="#work" data-cursor="hover">Work</a>
-        <a href="#contact" data-cursor="hover">Contact</a>
+    <!-- Top bar -->
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-mark"></span>
+        <span class="brand-text">WALL OF<br/>PORTFOLIOS</span>
+      </a>
+      <nav class="topnav">
+        <a href="#" data-cursor="hover">Portfolios</a>
+        <a href="#" data-cursor="hover">Case Studies</a>
+        <a href="#" data-cursor="hover">Job Tracker <span class="badge-new">New</span></a>
+      </nav>
+      <div class="topbar-right">
+        <button class="btn-pill btn-dark" data-cursor="hover">Submit Portfolio</button>
+        <button class="btn-pill btn-light" data-cursor="hover">Log in/Signup</button>
       </div>
-    </nav>
+    </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero" id="hero">
-        <div class="hero-content">
-          <div class="hero-tag reveal">Portfolio · 2026</div>
-          <h1 class="hero-heading reveal">
-            Hii, I am Satwik —<br />
-            A Visual <span class="gradient-text">Overthinker</span> Designer
-          </h1>
-          <p class="hero-sub reveal">
-            I design clean, interactive, and visually engaging digital experiences.
-          </p>
-          <div class="hero-cta reveal">
-            <a href="#work" class="btn btn-primary" data-cursor="hover">View Work</a>
-            <a href="#contact" class="btn btn-ghost" data-cursor="hover">Get in Touch</a>
+    <!-- Layout -->
+    <div class="layout">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <div class="profile">
+          <div class="avatar">
+            <span class="avatar-initials">SR</span>
+            <span class="avatar-status">Open to Work</span>
           </div>
-        </div>
-        <div class="scroll-hint reveal">
-          <span></span>
-          <p>Scroll</p>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="about" id="about">
-        <div class="container">
-          <div class="section-label reveal">// Philosophy</div>
-          <h2 class="about-text reveal">
-            I believe great design lives at the intersection of <em>intent</em> and <em>instinct</em>.
-            Every pixel, every transition, every empty space — they all whisper.
-            My job is to make sure they say something worth hearing.
-          </h2>
-        </div>
-      </section>
-
-      <!-- INTERACTION CARDS -->
-      <section class="services" id="services">
-        <div class="container">
-          <div class="section-label reveal">// What I Do</div>
-          <h2 class="section-heading reveal">Services <span class="gradient-text">crafted</span> with care.</h2>
-
-          <div class="cards-grid">
-            <div class="card tilt" data-cursor="hover">
-              <div class="card-num">01</div>
-              <h3>Visual Identity</h3>
-              <p>Brand systems, logo design, and visual languages that feel intentional and unmistakably yours.</p>
-            </div>
-            <div class="card tilt" data-cursor="hover">
-              <div class="card-num">02</div>
-              <h3>Interaction Design</h3>
-              <p>Micro-interactions and motion principles that turn interfaces into experiences worth remembering.</p>
-            </div>
-            <div class="card tilt" data-cursor="hover">
-              <div class="card-num">03</div>
-              <h3>Web Experiences</h3>
-              <p>Premium websites built with code — fluid, responsive, and visually unforgettable from first paint.</p>
-            </div>
-            <div class="card tilt" data-cursor="hover">
-              <div class="card-num">04</div>
-              <h3>Creative Direction</h3>
-              <p>End-to-end art direction for products, campaigns, and brands that demand a singular vision.</p>
-            </div>
+          <h1 class="profile-name">Satwik R</h1>
+          <div class="profile-meta">
+            <span>@satwikr</span>
+            <span class="dot-sep">·</span>
+            <span class="loc">📍 India</span>
           </div>
+          <div class="profile-role">Product Designer</div>
+
+          <div class="experience">
+            <div class="experience-label">1 Year Experience Includes:</div>
+            <div class="experience-pill"></div>
+          </div>
+
+          <button class="message-btn" data-cursor="hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Message
+          </button>
+          <button class="bookmark-btn" data-cursor="hover" aria-label="Bookmark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+
+          <nav class="sidenav">
+            <a href="#about" class="sidenav-link" data-cursor="hover">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Profile
+            </a>
+            <a href="#work" class="sidenav-link" data-cursor="hover">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Portfolio
+            </a>
+          </nav>
         </div>
-      </section>
+      </aside>
 
-      <!-- FEATURED WORK -->
-      <section class="work" id="work">
-        <div class="container">
-          <div class="section-label reveal">// Selected Work</div>
-          <h2 class="section-heading reveal">Recent <span class="gradient-text">projects</span>.</h2>
+      <!-- FLOATING ICON RAIL -->
+      <div class="rail">
+        <button class="rail-btn rail-active" data-cursor="hover" aria-label="Home">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 12l9-9 9 9v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg>
+        </button>
+        <button class="rail-btn" data-cursor="hover" aria-label="Expand">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </button>
+        <button class="rail-btn" data-cursor="hover" aria-label="About" data-section="#about">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </button>
+        <button class="rail-btn" data-cursor="hover" aria-label="Work" data-section="#work">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </button>
+        <button class="rail-btn" data-cursor="hover" aria-label="Case Study" data-section="#case">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </button>
+        <button class="rail-btn" data-cursor="hover" aria-label="Why I Design" data-section="#why">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+        </button>
+        <button class="rail-btn" data-cursor="hover" aria-label="Hobbies" data-section="#apart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6V4h8v2"/></svg>
+        </button>
+      </div>
 
-          <div class="work-list">
-            <a class="work-card reveal" data-cursor="hover" href="#">
-              <div class="work-img" style="background-image:linear-gradient(135deg,#FF3D77,#6C5CE7);"></div>
-              <div class="work-overlay">
-                <div class="work-meta">
-                  <span>Brand · Web</span>
-                  <span>2026</span>
-                </div>
-                <h3>Lumen — A finance app for the curious.</h3>
-                <p>Identity & product design for a next-gen personal finance platform.</p>
+      <!-- RESUME BUTTON -->
+      <button class="resume-btn" data-cursor="hover">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        Resume
+      </button>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- HERO -->
+        <section class="hero" id="hero">
+          <div class="hero-tip">Go ahead, Flick it. Press and hold the red Button.</div>
+          <div class="hero-wordmark">PORTFOLIO '26</div>
+          <div class="hero-stage" id="hero-stage"></div>
+          <div class="hero-base"></div>
+        </section>
+
+        <!-- BENTO PROJECT GRID -->
+        <section class="bento" id="work">
+          <div class="bento-grid">
+            <a class="tile tile-tall" data-cursor="hover" href="#">
+              <div class="tile-bg tile-grad-1"></div>
+              <div class="tile-art tile-art-pencil">
+                <span class="dot-text">NOTHING</span>
+                <div class="phone-mock"></div>
               </div>
+              <div class="tile-meta"><span>Concept</span><span>2026</span></div>
             </a>
 
-            <a class="work-card reveal" data-cursor="hover" href="#">
-              <div class="work-img" style="background-image:linear-gradient(135deg,#1a1a2e,#FF3D77);"></div>
-              <div class="work-overlay">
-                <div class="work-meta">
-                  <span>Web · 3D</span>
-                  <span>2025</span>
+            <a class="tile" data-cursor="hover" href="#">
+              <div class="tile-bg tile-grad-2"></div>
+              <div class="tile-art tile-art-spark">
+                <div class="spark-card">
+                  <svg viewBox="0 0 24 24" fill="#0B0B0F"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
                 </div>
-                <h3>Atelier Studio — Portfolio reimagined.</h3>
-                <p>An interactive portfolio for a multidisciplinary design studio in Berlin.</p>
+                <div class="hand-shape"></div>
               </div>
+              <div class="tile-meta"><span>AI · UX</span><span>2025</span></div>
             </a>
 
-            <a class="work-card reveal" data-cursor="hover" href="#">
-              <div class="work-img" style="background-image:linear-gradient(135deg,#6C5CE7,#0B0B0F);"></div>
-              <div class="work-overlay">
-                <div class="work-meta">
-                  <span>Identity</span>
-                  <span>2025</span>
+            <a class="tile tile-wide" data-cursor="hover" href="#">
+              <div class="tile-bg tile-grad-3"></div>
+              <div class="tile-art tile-art-phone">
+                <div class="phone-card">
+                  <span>Arco</span>
                 </div>
-                <h3>North&Co — A coffee brand with intent.</h3>
-                <p>Full visual identity & packaging system for an independent specialty roaster.</p>
               </div>
+              <div class="tile-meta"><span>Mobile · Industrial</span><span>2025</span></div>
+            </a>
+
+            <a class="tile" data-cursor="hover" href="#">
+              <div class="tile-bg tile-grad-4"></div>
+              <div class="tile-art tile-art-cam">
+                <div class="cam-body"></div>
+                <div class="cam-lens"></div>
+                <div class="laptop-mini"></div>
+              </div>
+              <div class="tile-meta"><span>Product · 3D</span><span>2025</span></div>
             </a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- CONTACT -->
-      <section class="contact" id="contact">
-        <div class="container">
-          <div class="section-label reveal">// Let's Talk</div>
-          <h2 class="section-heading reveal">Have an idea? <span class="gradient-text">Say hello.</span></h2>
+        <!-- CASE STUDY CAROUSEL -->
+        <section class="case" id="case">
+          <button class="case-arrow case-prev" data-cursor="hover" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="case-arrow case-next" data-cursor="hover" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
 
+          <div class="case-track" id="case-track">
+            <article class="case-slide">
+              <div class="case-img case-img-1"></div>
+              <div class="case-body">
+                <div class="case-year">2025</div>
+                <h2 class="case-title">ARCO</h2>
+                <div class="case-tags">
+                  <span class="tag">Web App</span>
+                  <span class="tag">UI / UX design</span>
+                  <span class="tag">User Research</span>
+                </div>
+                <p class="case-desc">
+                  Industrial design feels personal to me — it's the place where art meets purpose. Every curve, surface, and mechanism carries intention. It's not just about making products, but making stories people can hold. It reminds me that design isn't just about how things look, but how they fit into people's lives.
+                </p>
+                <div class="case-impact">
+                  <span class="impact-key">IMPACT :</span>
+                  <span class="impact-val"><b>Increased</b> Focused shooting experience.</span>
+                  <span class="impact-key">Reduced</span>
+                  <span class="impact-val">Visual & ergonomic clutter</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-slide">
+              <div class="case-img case-img-2"></div>
+              <div class="case-body">
+                <div class="case-year">2025</div>
+                <h2 class="case-title">SOUL AI</h2>
+                <div class="case-tags">
+                  <span class="tag">AI</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Workflow</span>
+                </div>
+                <p class="case-desc">
+                  A node-based creative canvas where designers compose AI workflows like jazz — each model a player, each connection a riff. The system rewards exploration, not the right answer.
+                </p>
+                <div class="case-impact">
+                  <span class="impact-key">IMPACT :</span>
+                  <span class="impact-val"><b>3.2x</b> faster ideation cycles.</span>
+                  <span class="impact-key">Reduced</span>
+                  <span class="impact-val">tool-switching by 70%.</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-slide">
+              <div class="case-img case-img-3"></div>
+              <div class="case-body">
+                <div class="case-year">2024</div>
+                <h2 class="case-title">LUMEN</h2>
+                <div class="case-tags">
+                  <span class="tag">Mobile</span>
+                  <span class="tag">Fintech</span>
+                  <span class="tag">Identity</span>
+                </div>
+                <p class="case-desc">
+                  A finance app that treats money as language, not math. Tone, rhythm, and pacing replace charts and spreadsheets — designed for people who want to understand their habits, not optimize them.
+                </p>
+                <div class="case-impact">
+                  <span class="impact-key">IMPACT :</span>
+                  <span class="impact-val"><b>Doubled</b> weekly active sessions.</span>
+                  <span class="impact-key">Reduced</span>
+                  <span class="impact-val">drop-off in onboarding by 48%.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="case-dots" id="case-dots">
+            <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+        </section>
+
+        <!-- INTERACTABLE ZONE -->
+        <section class="interact" id="interact">
+          <div class="interact-hint">Interactable Zone , Hold &amp; drag the content</div>
+          <div class="interact-bg-text">About me</div>
+          <div class="interact-stage" id="interact-stage">
+            <div class="drag-item drag-airdrop" data-cursor="hover" style="--x:120px;--y:60px;--r:-6deg">
+              <div class="airdrop-title">AirDrop</div>
+              <div class="airdrop-img"></div>
+              <div class="airdrop-actions">
+                <button>Decline</button>
+                <button class="primary">Accept</button>
+              </div>
+            </div>
+
+            <div class="drag-item drag-context" data-cursor="hover" style="--x:60px;--y:30px;--r:-2deg">
+              <div class="ctx-row">Minimize</div>
+              <div class="ctx-row">↗ Post everything</div>
+              <div class="ctx-row">⊞ View All Tabs</div>
+              <div class="ctx-row">Open New Tab</div>
+              <div class="ctx-row">Go to Previous Tab</div>
+              <div class="ctx-row">Close Tab <span class="kbd">⌘</span></div>
+              <div class="ctx-row">Full Screen</div>
+            </div>
+
+            <div class="drag-item drag-faceid" data-cursor="hover" style="--x:380px;--y:100px;--r:0deg">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0B0B0F" stroke-width="1.6">
+                <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+                <path d="M9 10v2M15 10v2M9 16c1 1 5 1 6 0"/>
+              </svg>
+            </div>
+
+            <div class="drag-item drag-modal" data-cursor="hover" style="--x:430px;--y:170px;--r:3deg">
+              <div class="modal-title">Design in progress</div>
+              <div class="modal-text">This designer's still prototyping his career but the results look promising</div>
+              <div class="modal-actions">
+                <button>Intern</button>
+                <button class="hire">Hire</button>
+              </div>
+              <div class="modal-cursor">▲</div>
+            </div>
+
+            <div class="drag-item drag-text" data-cursor="hover" style="--x:300px;--y:330px;--r:-3deg">
+              <span class="drag-text-inner">Portfolio 2026</span>
+            </div>
+
+            <div class="drag-item drag-photo" data-cursor="hover" style="--x:270px;--y:160px;--r:4deg">
+              <div class="photo-frame photo-1"></div>
+            </div>
+
+            <div class="drag-item drag-photo2" data-cursor="hover" style="--x:600px;--y:80px;--r:-2deg">
+              <div class="photo-frame photo-2 large">
+                <div class="photo-titlebar">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                  <span class="photo-title">About me in short</span>
+                </div>
+                <div class="photo-content"></div>
+              </div>
+            </div>
+
+            <div class="drag-item drag-blob" data-cursor="hover" style="--x:840px;--y:120px;--r:8deg">
+              <div class="blob-create">Create</div>
+            </div>
+
+            <div class="drag-item drag-imessage" data-cursor="hover" style="--x:760px;--y:300px;--r:-1deg">
+              <div class="imsg-close">×</div>
+              <div class="imsg-q">Why Am I Here?</div>
+              <div class="imsg-bubble">
+                Honestly, I'm just a modal. I pop up, I ask for attention, and then usually I go away. What's your purpose today?
+              </div>
+              <div class="imsg-send">↑</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BIO TOGGLE: FULL YAP / TL;DR -->
+        <section class="bio" id="about">
+          <div class="bio-toggle">
+            <button class="bio-tab active" data-bio="full" data-cursor="hover">
+              <span class="bio-icon">🗣</span> Full Yap
+            </button>
+            <button class="bio-tab" data-bio="tldr" data-cursor="hover">
+              <span class="bio-icon">≡</span> TL ; DR
+            </button>
+          </div>
+
+          <div class="bio-content" id="bio-content">
+            <p class="bio-line"><span class="strike-target full-only">It started with curiosity.</span></p>
+            <p class="bio-line">
+              <span class="strike-target full-only">As a kid,</span>
+              <span class="bio-keep">I was obsessed with how things were built — not just how they looked, but why they worked the way they did.</span>
+              <span class="strike-target full-only">I'd take apart objects, sketch ideas, and spend hours noticing small details most people overlooked. I didn't know it back then, but I was already thinking like a designer.</span>
+            </p>
+            <p class="bio-line">
+              <span class="strike-target full-only">Before screens became my primary medium,</span>
+              <span class="bio-keep">I was deeply into products, machines, and form.</span>
+              <span class="strike-target full-only">I was fascinated by how a physical object could communicate intent through shape, material, and ergonomics. That interest slowly evolved from engines and hardware into interfaces and systems — from how things are made to how people experience them.</span>
+            </p>
+            <p class="bio-line strike-target full-only">
+              Studying Industrial Design helped me ground that curiosity in reality: research, ergonomics, prototyping, and manufacturing logic. Over time, UI/UX entered naturally not as a switch, but as an extension. I realised modern products don't live in one world anymore. A product is the hardware and the interface and the flow and the emotion.
+            </p>
+            <p class="bio-line">
+              <span class="bio-keep">Today, I design end-to-end product experiences — physical and digital — using a mix of industrial design thinking, UI/UX principles, and AI-assisted workflows.</span>
+              <span class="strike-target full-only">I enjoy working from first principles, asking uncomfortable questions, and turning complexity into clarity.</span>
+            </p>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE SCRAPBOOK -->
+        <section class="exp" id="exp">
+          <h2 class="exp-bg">Experience</h2>
+          <div class="exp-board">
+            <div class="exp-sticker exp-stamp" style="--r:-8deg">
+              <div class="stamp-top">VIEWS · 06</div>
+              <div class="stamp-img"></div>
+            </div>
+            <div class="exp-sticker exp-pin" style="--r:0deg">
+              <div class="pin-dot"></div>
+            </div>
+            <div class="exp-sticker exp-eye" style="--r:-10deg">👁</div>
+            <div class="exp-sticker exp-clover" style="--r:14deg">🍀</div>
+            <div class="exp-sticker exp-heart" style="--r:-12deg">
+              <svg viewBox="0 0 24 24" width="60" height="60" fill="#0B0B0F"><path d="M12 21s-7-4.5-9.5-10A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 5C19 16.5 12 21 12 21z"/><circle cx="14" cy="11" r="1.6" fill="#fff"/></svg>
+            </div>
+            <div class="exp-sticker exp-lips" style="--r:18deg">
+              <svg viewBox="0 0 24 24" width="70" height="50" fill="#0B0B0F"><path d="M3 12s3-5 9-5 9 5 9 5-3 5-9 5-9-5-9-5z"/></svg>
+            </div>
+            <div class="exp-sticker exp-ticket" style="--r:6deg">
+              <div class="ticket">
+                <div class="ticket-title">ARCTIC<br/>MONKEYS</div>
+                <div class="ticket-side">ENTRADA</div>
+              </div>
+            </div>
+            <div class="exp-line">
+              <svg viewBox="0 0 200 120" preserveAspectRatio="none">
+                <path d="M20 20 C 80 20 80 60 110 60 S 140 100 180 100" stroke="#0B0B0F" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- WHY I DESIGN -->
+        <section class="why" id="why">
+          <div class="why-bg-text">
+            When Steve C. first asked me about building a world-class software team — our talk over the years, everything that I should now check proved out. He wasn't an easy person, but his work rivaled his genius and his teammates did too. The team ever became great. I noticed that he was the best.
+          </div>
+          <div class="why-modal" data-cursor="hover">
+            <div class="why-modal-title">Why I design ?</div>
+            <div class="why-portrait"></div>
+            <div class="why-quote">
+              I'm drawn to the details people rarely notice, but always feel.
+              Good design earns trust by working quietly in the background.
+            </div>
+          </div>
+          <div class="why-pills">
+            <button class="why-pill active" data-cursor="hover">
+              <span class="pill-icon">▭</span> UI / UX design
+            </button>
+            <button class="why-pill" data-cursor="hover">
+              <span class="pill-icon">◉</span> Industrial design
+            </button>
+            <button class="why-pill" data-cursor="hover">
+              <span class="pill-icon">▶</span> Motion graphics
+            </button>
+            <button class="why-pill" data-cursor="hover">
+              <span class="pill-icon">◈</span> Graphic design
+            </button>
+          </div>
+        </section>
+
+        <!-- DISCIPLINE BLOCK 1: UI/UX -->
+        <section class="disc disc-ui" id="ui">
+          <div class="disc-art">
+            <div class="float-card card-graph"></div>
+            <div class="float-card card-eth">
+              <div class="eth-label">ETH</div>
+              <div class="eth-price">$12,495</div>
+              <div class="eth-spark"></div>
+            </div>
+            <div class="float-card card-arc">Arc<span>o</span></div>
+            <div class="float-card card-photos"></div>
+            <div class="float-card card-base">Aa</div>
+            <div class="float-card card-mini"></div>
+          </div>
+          <div class="disc-text">
+            <div class="disc-label">UI UX design</div>
+            <p>I think of UI and UX as paying attention to how people move, hesitate, tap, and get confused.</p>
+            <p>When something works well, users don't think about the interface at all. They just keep going.</p>
+          </div>
+        </section>
+
+        <!-- DISCIPLINE BLOCK 2: INDUSTRIAL -->
+        <section class="disc disc-ind" id="industrial">
+          <div class="disc-text">
+            <div class="disc-label">Industrial design</div>
+            <p>I'm drawn to physical objects because they're honest.</p>
+            <p>You can feel immediately if something is uncomfortable, awkward, or thoughtfully made — there's nowhere to hide.</p>
+          </div>
+          <div class="disc-art ind-art">
+            <div class="ind-prod ind-1"></div>
+            <div class="ind-prod ind-2"></div>
+            <div class="ind-prod ind-3"></div>
+            <div class="ind-prod ind-4"></div>
+            <div class="ind-prod ind-5"></div>
+            <div class="ind-prod ind-6"></div>
+          </div>
+        </section>
+
+        <!-- APART FROM DESIGN: FOLDERS -->
+        <section class="apart" id="apart">
+          <h2 class="apart-bg">Apart from design</h2>
+          <div class="folders">
+            <div class="folder" data-folder="music" data-cursor="hover">
+              <div class="folder-back"></div>
+              <div class="folder-front">
+                <div class="folder-cover folder-music">
+                  <span class="cover-tl">XO</span>
+                  <span class="cover-tr">🦉</span>
+                  <div class="cover-strip">PARENTAL ADVISORY</div>
+                </div>
+              </div>
+              <div class="folder-fan fan-music">
+                <span class="fan-card fan-1"></span>
+                <span class="fan-card fan-2"></span>
+                <span class="fan-card fan-3"></span>
+              </div>
+              <div class="folder-label">Music</div>
+              <div class="folder-blurb">Mostly everything, obsessively a few.</div>
+            </div>
+
+            <div class="folder" data-folder="movies" data-cursor="hover">
+              <div class="folder-back"></div>
+              <div class="folder-front">
+                <div class="folder-cover folder-movies">
+                  <span class="cover-tr small">do it for the plot</span>
+                  <span class="cover-bl">[as]</span>
+                </div>
+              </div>
+              <div class="folder-fan fan-movies">
+                <span class="fan-card fan-1"></span>
+                <span class="fan-card fan-2"></span>
+                <span class="fan-card fan-3"></span>
+              </div>
+              <div class="folder-label">Movies</div>
+              <div class="folder-blurb">The kind you notice something new in every time.</div>
+            </div>
+
+            <div class="folder" data-folder="photo" data-cursor="hover">
+              <div class="folder-back"></div>
+              <div class="folder-front">
+                <div class="folder-cover folder-photo">
+                  <div class="film-roll"></div>
+                  <div class="flash"></div>
+                </div>
+              </div>
+              <div class="folder-fan fan-photo">
+                <span class="fan-card fan-1"></span>
+                <span class="fan-card fan-2"></span>
+                <span class="fan-card fan-3"></span>
+              </div>
+              <div class="folder-label">Photography</div>
+              <div class="folder-blurb">Mostly moments, rarely planned.</div>
+            </div>
+
+            <div class="folder" data-folder="football" data-cursor="hover">
+              <div class="folder-back"></div>
+              <div class="folder-front">
+                <div class="folder-cover folder-football">
+                  <div class="kit"></div>
+                  <span class="plate">BR4S1L</span>
+                </div>
+              </div>
+              <div class="folder-fan fan-football">
+                <span class="fan-card fan-1"></span>
+                <span class="fan-card fan-2"></span>
+                <span class="fan-card fan-3"></span>
+              </div>
+              <div class="folder-label">Football</div>
+              <div class="folder-blurb">More than just the score.</div>
+            </div>
+          </div>
+
+          <div class="apart-foot">
+            <p>You can never know too many applications.</p>
+            <p>But here's what i know.</p>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
           <div class="contact-grid">
-            <div class="contact-card reveal">
-              <div class="contact-row" data-cursor="hover">
-                <span class="contact-label">Mail</span>
-                <span class="contact-value">hello@satwik.design</span>
+            <div class="wallet">
+              <div class="wallet-card wallet-1">
+                <span class="wallet-icon">✉</span>
+                <span class="wallet-label">Mail</span>
               </div>
-              <div class="contact-row" data-cursor="hover">
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-value">/in/satwik</span>
+              <div class="wallet-card wallet-2">
+                <span class="wallet-icon">✉</span>
+                <span class="wallet-label">Contact</span>
               </div>
-              <div class="contact-row" data-cursor="hover">
-                <span class="contact-label">Instagram</span>
-                <span class="contact-value">@satwik.designs</span>
-              </div>
-              <div class="contact-row" data-cursor="hover">
-                <span class="contact-label">Dribbble</span>
-                <span class="contact-value">/satwik</span>
+              <div class="wallet-base">
+                <span class="wallet-mark"></span>
               </div>
             </div>
 
-            <div class="chat-card reveal">
-              <div class="chat-header">
-                <div class="chat-avatar"></div>
-                <div>
-                  <div class="chat-name">Someone, somewhere</div>
-                  <div class="chat-status"><span class="dot"></span> just now</div>
-                </div>
+            <div class="imessage">
+              <div class="imsg-to">To: Recruiter</div>
+              <div class="imsg-bubble-blue">
+                Hi! Since you spent 2 minutes viewing this, let's not waste any more time. The next step is an interview I've already allocated the time slot in my calendar.
               </div>
-              <div class="chat-bubble">
-                Hey Satwik, I loved your work. Are you available for a project this quarter?
-              </div>
-              <div class="chat-input" data-cursor="hover">
-                <span>Reply…</span>
-                <div class="chat-send">→</div>
+              <div class="imsg-input">
+                <span>iMessage</span>
+                <span class="imsg-mic">🎙</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <footer class="footer">
-        <div class="container footer-inner">
-          <div>© 2026 Satwik. Designed & coded with care.</div>
-          <div>Made in India · Available worldwide</div>
-        </div>
-      </footer>
-    </main>
+          <div class="socials">
+            <a href="#" data-cursor="hover" aria-label="Behance">Bē</a>
+            <a href="#" data-cursor="hover" aria-label="Instagram">◎</a>
+            <a href="#" data-cursor="hover" aria-label="LinkedIn">in</a>
+          </div>
+
+          <div class="copyright">© 2026 Satwik.design. All rights reserved</div>
+
+          <div class="signature">Satwik R</div>
+        </section>
+
+      </main>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
