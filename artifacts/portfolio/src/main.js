@@ -460,4 +460,37 @@ gsap.utils.toArray('.exp-bg, .apart-bg, .interact-bg-text').forEach((el) => {
   });
 });
 
+// Theme switch: white → black at experience section
+const expSection = document.getElementById('exp');
+if (expSection) {
+  ScrollTrigger.create({
+    trigger: expSection,
+    start: 'top 70%',
+    end: 'bottom top',
+    onEnter: () => document.body.classList.add('theme-dark'),
+    onEnterBack: () => document.body.classList.add('theme-dark'),
+    onLeaveBack: () => document.body.classList.remove('theme-dark'),
+  });
+}
+
+// Active state for left vertical nav
+const vnavLinks = document.querySelectorAll('.vnav-link');
+vnavLinks.forEach((link) => {
+  const id = link.getAttribute('href');
+  if (!id || !id.startsWith('#')) return;
+  const target = document.querySelector(id);
+  if (!target) return;
+  ScrollTrigger.create({
+    trigger: target,
+    start: 'top 40%',
+    end: 'bottom 40%',
+    onToggle: (self) => {
+      if (self.isActive) {
+        vnavLinks.forEach((l) => l.classList.remove('is-active'));
+        link.classList.add('is-active');
+      }
+    },
+  });
+});
+
 console.log('[portfolio] booted');
