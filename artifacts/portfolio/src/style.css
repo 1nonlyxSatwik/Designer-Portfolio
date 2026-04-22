@@ -73,23 +73,25 @@ body.theme-dark .vnav-link:hover { color: #fff; background: rgba(255,255,255,0.0
 body.theme-dark .vnav-divider { background: rgba(255,255,255,0.12); }
 
 /* Premium typography baseline (applies globally) */
-body { font-size: 18px; line-height: 1.7; letter-spacing: 0; }
-.main p { font-size: 18px; line-height: 1.7; font-weight: 400; }
-h1, h2, h3 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+body { font-size: 20px; line-height: 1.65; letter-spacing: 0; }
+.main p { font-size: 20px; line-height: 1.65; font-weight: 400; }
+h1, h2, h3 { font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; }
+h2 { font-size: clamp(48px, 6vw, 88px); }
+h3 { font-size: clamp(28px, 3vw, 40px); }
 
 /* =========================================
    LEFT VERTICAL ICON NAV (floating)
    ========================================= */
 .vnav {
   position: fixed;
-  left: 18px;
+  left: 22px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 60;
   display: flex; flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 14px 8px;
+  gap: 8px;
+  padding: 18px 10px;
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -99,7 +101,8 @@ h1, h2, h3 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
   transition: background-color .6s ease, border-color .6s ease, color .6s ease;
 }
 .vnav-link {
-  width: 38px; height: 38px;
+  width: 46px; height: 46px;
+  font-size: 18px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
   color: rgba(11,11,15,0.7);
@@ -994,6 +997,22 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   display: flex; align-items: center; justify-content: center;
   letter-spacing: .2em;
 }
+.ticket-xxx {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08), transparent 60%),
+    url('/apart/music-1.png') center/cover no-repeat,
+    #000;
+  border-color: #000;
+  color: #fff;
+}
+.ticket-xxx .ticket-title {
+  text-shadow: 0 2px 8px rgba(0,0,0,.9);
+  color: #fff;
+}
+.ticket-xxx .ticket-side {
+  border-left-color: rgba(255,255,255,.4);
+  color: #fff;
+}
 .exp-line {
   position: absolute;
   top: 50%; left: 30%; width: 220px; height: 100px;
@@ -1213,44 +1232,46 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   overflow: hidden;
 }
 .apart-bg {
-  position: absolute;
-  top: 80px; left: 50%; transform: translateX(-50%);
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
   font-weight: 800;
-  font-size: clamp(60px, 11vw, 160px);
-  color: rgba(255,255,255,0.06);
+  font-size: clamp(48px, 8vw, 110px);
+  color: rgba(255,255,255,0.10);
   letter-spacing: -0.04em;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
   font-style: italic;
+  padding-top: 20px;
 }
 .folders {
   position: relative; z-index: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  padding: 60px 40px 80px;
-  max-width: 1100px; margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 80px 40px 120px;
+  max-width: 1200px; margin: 0 auto;
 }
 .folder {
   position: relative;
   text-align: center;
-  height: 240px;
+  height: 340px;
   display: flex; flex-direction: column; align-items: center;
 }
 .folder-back {
-  position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
-  width: 160px; height: 22px;
+  position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+  width: 220px; height: 30px;
   background: linear-gradient(180deg, #f0f0f5, #d0d0d8);
-  border-radius: 6px 6px 0 0;
+  border-radius: 8px 8px 0 0;
   z-index: 1;
 }
 .folder-front {
-  position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
-  width: 170px; height: 130px;
+  position: absolute; top: 56px; left: 50%; transform: translateX(-50%);
+  width: 240px; height: 180px;
   background: linear-gradient(180deg, #fff, #e8e8ec);
-  border-radius: 0 6px 8px 8px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+  border-radius: 0 8px 12px 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.4);
   z-index: 3;
   overflow: hidden;
   transition: transform .5s cubic-bezier(.16,1,.3,1);
@@ -1320,53 +1341,54 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 .folder-fan {
   position: absolute;
   top: 0; left: 50%; transform: translateX(-50%);
-  width: 240px; height: 180px;
+  width: 320px; height: 240px;
   z-index: 2;
   pointer-events: none;
 }
 .fan-card {
   position: absolute;
-  top: 30px; left: 50%;
-  width: 90px; height: 110px;
+  top: 40px; left: 50%;
+  width: 130px; height: 160px;
   background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.4);
-  transform: translateX(-50%) translateY(0) rotate(0deg) scale(.6);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.55);
+  transform: translateX(-50%) translateY(0) rotate(0deg) scale(.5);
   opacity: 0;
-  transition: transform .5s cubic-bezier(.16,1,.3,1), opacity .4s ease;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.3)),
-    repeating-linear-gradient(45deg, #c0c0c0 0 4px, #888 4px 8px);
+  transition: transform .55s cubic-bezier(.16,1,.3,1), opacity .4s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.folder:hover .folder-front { transform: translateX(-50%) translateY(40px) scale(.92); }
-.folder:hover .fan-card.fan-1 { transform: translateX(-110%) translateY(-30px) rotate(-14deg) scale(1); opacity: 1; }
-.folder:hover .fan-card.fan-2 { transform: translateX(-50%) translateY(-44px) rotate(-2deg) scale(1); opacity: 1; }
-.folder:hover .fan-card.fan-3 { transform: translateX(10%) translateY(-30px) rotate(12deg) scale(1); opacity: 1; }
+.folder:hover .folder-front { transform: translateX(-50%) translateY(56px) scale(.92); }
+.folder:hover .fan-card.fan-1 { transform: translateX(-115%) translateY(-30px) rotate(-16deg) scale(1); opacity: 1; }
+.folder:hover .fan-card.fan-2 { transform: translateX(-50%) translateY(-50px) rotate(-2deg) scale(1.04); opacity: 1; }
+.folder:hover .fan-card.fan-3 { transform: translateX(15%) translateY(-30px) rotate(14deg) scale(1); opacity: 1; }
 
-.fan-music .fan-1 { background: linear-gradient(180deg, #555, #222); }
-.fan-music .fan-2 { background: linear-gradient(180deg, #888, #444); }
-.fan-music .fan-3 { background: linear-gradient(180deg, #aaa, #666); }
-.fan-movies .fan-card { background: linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,.7)), repeating-linear-gradient(0deg, #888 0 6px, #666 6px 12px); }
-.fan-photo .fan-1 { background: linear-gradient(180deg, #888, #444); }
-.fan-photo .fan-2 { background: linear-gradient(180deg, #FFC400, #FB923C); }
-.fan-photo .fan-3 { background: linear-gradient(180deg, #6C5CE7, #1a1a2e); }
-.fan-football .fan-card { background: linear-gradient(180deg, #FFC400, #444); }
+.fan-music .fan-1 { background-image: url('/apart/music-1.png'); }
+.fan-music .fan-2 { background-image: url('/apart/music-2.png'); }
+.fan-music .fan-3 { background-image: url('/apart/music-3.png'); }
+.fan-movies .fan-1 { background-image: url('/apart/movies-1.png'); }
+.fan-movies .fan-2 { background-image: url('/apart/movies-2.png'); }
+.fan-movies .fan-3 { background-image: url('/apart/movies-3.png'); }
+.fan-football .fan-1 { background-image: url('/apart/football-1.png'); }
+.fan-football .fan-2 { background-image: url('/apart/football-2.png'); }
+.fan-football .fan-3 { background-image: url('/apart/football-3.png'); }
 
 .folder-label {
   position: absolute;
-  top: 184px; left: 50%; transform: translateX(-50%);
+  top: 250px; left: 50%; transform: translateX(-50%);
   background: rgba(255,255,255,.1);
-  padding: 4px 14px;
+  padding: 6px 18px;
   border-radius: 100px;
-  font-size: 13px; font-weight: 500;
+  font-size: 16px; font-weight: 600;
   color: #fff;
   z-index: 4;
   white-space: nowrap;
 }
 .folder-blurb {
   position: absolute;
-  top: 220px; left: 50%; transform: translateX(-50%);
-  font-size: 11px;
+  top: 295px; left: 50%; transform: translateX(-50%);
+  font-size: 13px;
   color: rgba(255,255,255,.5);
   white-space: nowrap;
   opacity: 0;
@@ -1642,6 +1664,23 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   text-align: center;
   line-height: 1;
   user-select: none;
+}
+/* Massive edge-to-edge stretched name in contact footer */
+.signature-stretch {
+  margin: 80px -60px 0;
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(120px, 27vw, 480px);
+  line-height: .82;
+  letter-spacing: -0.06em;
+  color: #FFFFFF;
+  text-align: center;
+  text-transform: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: scaleX(1.04);
+  transform-origin: center bottom;
 }
 
 @media (max-width: 900px) {
