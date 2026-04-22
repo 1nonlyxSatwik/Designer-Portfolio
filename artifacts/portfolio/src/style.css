@@ -854,8 +854,12 @@ h1, h2, h3 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
 /* =========================================
    BIO TOGGLE
    ========================================= */
-.bio { padding: 100px 0; max-width: 680px; margin: 0 auto; text-align: center; }
-.bio .bio-content { text-align: left; }
+.bio { padding: 120px 0; max-width: 760px; margin: 0 auto; text-align: center; padding-left: 24px; padding-right: 24px; }
+.bio .bio-content {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
 .bio-toggle {
   display: inline-flex;
   background: #fff;
@@ -879,8 +883,17 @@ h1, h2, h3 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
 .bio-tab.active { background: #0B0B0F; color: #fff; }
 .bio-icon { font-size: 14px; }
 
-.bio-content { font-size: 17px; line-height: 1.75; color: var(--ink); }
-.bio-content p { margin-bottom: 22px; }
+.bio-content {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 19px; line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.bio-content p { margin-bottom: 28px; }
+.bio-content .bio-keep { font-weight: 700; color: #0B0B0F; }
+body.theme-dark .bio-content .bio-keep { color: #FFFFFF; }
+body.theme-dark .bio-content { color: #A0A0B2; }
 .strike-target {
   position: relative;
   transition: opacity .5s ease, color .5s ease;
