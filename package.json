@@ -19,8 +19,9 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "framer-motion": "catalog:",
-    "gsap": "^3.15.0",
-    "three": "^0.184.0",
+    "gsap": "^3.12.5",
+    "three": "^0.170.0",
+    "lenis": "^1.1.13",
     "wouter": "^3.3.5",
     "lucide-react": "catalog:",
     "clsx": "catalog:",
@@ -28,7 +29,8 @@
     "class-variance-authority": "catalog:",
     "next-themes": "^0.4.6",
     "sonner": "^2.0.7",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "remixicon": "^4.2.0"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -69,7 +71,7 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@types/three": "^0.184.0",
+    "@types/three": "^0.170.0",
     "@vitejs/plugin-react": "catalog:",
     "@workspace/api-client-react": "workspace:*",
     "@types/cookie-parser": "^1.4.10",
