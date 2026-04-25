@@ -131,9 +131,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
   background: rgba(255,255,255,0.25);
   margin: 5px 0;
 }
-@media (max-width: 900px) {
-  .vnav { display: none; }
-}
+/* Removed old media query to use the comprehensive ones at the bottom */
 
 /* =========================================
    CUSTOM CURSOR
@@ -162,11 +160,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
   border-color: rgba(255,255,255,0.95);
 }
 
-@media (max-width: 900px) {
-  body { cursor: auto; }
-  .cursor, .cursor-dot { display: none; }
-  a, button, [data-cursor] { cursor: pointer !important; }
-}
+/* Moved to comprehensive media queries */
 
 /* =========================================
    LAYOUT
@@ -295,10 +289,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
 }
 .resume-btn:hover { transform: translateY(-2px); }
 
-@media (max-width: 1100px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
-}
+/* Moved to comprehensive media queries */
 
 /* =========================================
    MAIN
@@ -308,8 +299,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
   max-width: 100%;
   overflow-x: hidden;
 }
-@media (max-width: 1100px) { .main { padding: 0 70px 0 80px; } }
-@media (max-width: 768px) { .main { padding: 0 16px; } .resume-btn { top: 70px; right: 12px; } }
+/* Moved to comprehensive media queries */
 
 /* =========================================
    HERO
@@ -395,9 +385,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
 .is-scrolling .hero-model spline-viewer {
   pointer-events: none !important;
 }
-@media (max-width: 768px) {
-  .hero-model { height: 70vh; top: 65%; }
-}
+/* Moved to comprehensive media queries */
 .hero-stage { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .hero-base {
   position: absolute;
@@ -551,11 +539,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
   background: linear-gradient(0deg, rgba(0,0,0,0.5), transparent);
 }
 
-@media (max-width: 900px) {
-  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-  .tile-tall { grid-row: span 2; }
-  .tile-wide { grid-column: span 2; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    CASE STUDY CAROUSEL
@@ -705,12 +689,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
 }
 .case-dots .dot.active { background: #000000; width: 22px; border-radius: 100px; }
 
-@media (max-width: 900px) {
-  .case-slide { grid-template-columns: 1fr; min-height: auto; }
-  .case-img { height: 240px; }
-  .case-body { padding: 28px; }
-  .case-title { font-size: 32px; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    INTERACTABLE ZONE
@@ -905,9 +884,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
   font-size: 14px;
 }
 
-@media (max-width: 900px) {
-  .interact-stage { height: 800px; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    BIO TOGGLE
@@ -982,11 +959,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 }
 .bio.tldr .strike-target::after { width: 100%; }
 
-@media (max-width: 768px) { 
-  .bio { padding: 80px 24px; padding-left: 24px; }
-  .bio-content { font-size: 18px; } 
-  .bio-toggle { margin-left: 0; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    EXPERIENCE SCRAPBOOK
@@ -1373,6 +1346,14 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   text-align: justify;
   overflow: hidden;
 }
+@media (max-width: 900px) {
+  .why-bg-text {
+    padding: 40px;
+    columns: 1;
+    font-size: 18px;
+    opacity: 0.05;
+  }
+}
 
 .why-center {
   position: relative;
@@ -1412,7 +1393,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 }
 
 .why-card {
-  width: 400px;
+  width: min(400px, 100%);
   aspect-ratio: 4/5;
   background: rgba(255,255,255,0.03);
   border-radius: 28px;
@@ -1483,13 +1464,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   font-size: 14px;
 }
 
-@media (max-width: 900px) {
-  .why-center { flex-direction: column; align-items: center; padding: 0 24px; }
-  .why-card { width: min(340px, 100%); }
-  .why-pills { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; padding-top: 0; margin-top: 20px; }
-  .why-quote-card { position: relative; bottom: auto; left: auto; transform: none; width: 100%; margin-top: 16px; }
-  .why-bg-text { inset: 30px 24px; font-size: 14px; columns: 1; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    DISCIPLINE BLOCKS
@@ -1596,11 +1571,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 .ind-5 { width: 140px; height: 90px; bottom: 60px; right: 0; border-radius: 18px; background: linear-gradient(135deg, #444, #111); }
 .ind-6 { width: 160px; height: 80px; bottom: 0; left: 20%; border-radius: 22px; background: linear-gradient(135deg, #3B3B3B, #000000); }
 
-@media (max-width: 900px) {
-  .disc { grid-template-columns: 1fr; padding: 60px 24px; }
-  .disc-art { height: 360px; }
-  .disc-ind .disc-art { order: 2; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    APART FROM DESIGN
@@ -1909,9 +1880,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   transform: scale(1.02);
 }
 
-@media (max-width: 900px) {
-  .folders { grid-template-columns: repeat(2, 1fr); }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    CONTACT OVERHAUL (REFERENCE MATCH)
@@ -2235,11 +2204,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   letter-spacing: 0.05em;
 }
 
-@media (max-width: 900px) {
-  .contact-box { padding: 40px 30px; border-radius: 30px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 60px; }
-  .imessage-window { width: 100%; }
-}
+/* Consolidated to bottom */
 
 .socials {
   display: flex; gap: 18px;
@@ -2301,14 +2266,147 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   padding-bottom: 150px; /* ensure visibility at the very bottom */
 }
 
-@media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  .copyright { text-align: center; margin-top: 20px; }
-  .socials { padding-left: 0; justify-content: center; }
-}
+/* Consolidated to bottom */
 
 /* =========================================
    REVEAL
    ========================================= */
 .reveal { opacity: 0; transform: translateY(30px); will-change: opacity, transform; }
+
+/* =========================================
+   RESPONSIVENESS (ALL DEVICES)
+   ========================================= */
+
+/* --- LARGE SCREENS (iMac, 2K+ Desktops) --- */
+@media (min-width: 1600px) {
+  .contact-box { padding: 120px 180px; }
+  .contact-grid { gap: 160px; }
+  .signature-stretch { font-size: 520px; }
+}
+
+/* --- LAPTOPS & TABLETS (Up to 1200px) --- */
+@media (max-width: 1200px) {
+  .main { padding: 0 40px; }
+  .contact-box { padding: 80px 100px; }
+  .contact-grid { gap: 80px; }
+  .folders { gap: 40px; }
+}
+
+/* --- TABLETS (Up to 900px) --- */
+@media (max-width: 900px) {
+  .vnav { 
+    left: 50%; top: auto; bottom: 20px;
+    transform: translateX(-50%);
+    flex-direction: row;
+    width: fit-content;
+    padding: 10px 20px;
+    height: auto;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .vnav-divider { width: 1px; height: 17px; margin: 0 8px; background: rgba(255,255,255,0.2); }
+  .vnav-link { width: 44px; height: 44px; }
+
+  .main { padding: 0 24px; }
+  
+  .hero-model spline-viewer { transform: scale(1); }
+  .hero-wordmark { font-size: clamp(40px, 12vw, 100px); }
+  
+  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: minmax(180px, auto); }
+  .tile-wide, .tile-tall { grid-column: span 1; grid-row: span 1; }
+
+  .case-slide { grid-template-columns: 1fr; }
+  .case-img { height: 280px; }
+
+  .interact-stage { height: auto; display: flex; flex-direction: column; gap: 20px; align-items: center; padding: 60px 0; }
+  .drag-item { position: relative !important; left: 0 !important; top: 0 !important; transform: none !important; width: 100% !important; max-width: min(340px, 100%); }
+  .interact-bg-text { display: none; }
+  
+  .exp-board { height: auto !important; cursor: default; }
+  .exp-board.open { height: auto !important; }
+  .half-wrapper { position: relative; height: auto; top: auto; bottom: auto; z-index: 10; }
+  .bg-half { border-radius: 14px; position: relative; height: 320px; margin-bottom: 20px; }
+  .exp-folders { position: relative; top: auto; left: 0; right: 0; height: auto; opacity: 1; pointer-events: auto; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+  .exp-folder { margin-top: 0 !important; }
+  .exp-sticker { display: none; } /* Stickers clutter mobile too much */
+  .exp-curved-line, .exp-node, .exp-divider { display: none; }
+  .folder-rehyve .folder-tab-wrap, .folder-sstudize .folder-tab-wrap, .folder-iitg .folder-tab-wrap { padding-right: 0; text-align: center; }
+  .folder-tab { border-radius: 12px 12px 0 0; }
+  
+  .disc { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+  .disc-art { height: 320px; order: -1; }
+  
+  .folders { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 40px 0; }
+  .folder { height: 300px; }
+  .folder-back, .folder-front { width: 160px; height: 100px; margin-left: -80px; }
+  .folder-front { top: 40px; }
+  .folder-fan { width: 100%; }
+  .fan-card { width: 120px; height: 80px; }
+  
+  .contact-box { padding: 40px 24px; border-radius: 30px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .wallet-stack { width: 100%; max-width: 280px; margin: 0 auto; }
+  .imessage-column { width: 100%; }
+  
+  .signature-stretch { margin: 40px 0 0; font-size: clamp(80px, 20vw, 200px); padding-bottom: 80px; }
+  
+  /* Additional fixes for 900px */
+  .why-center { flex-direction: column; align-items: center; gap: 40px; }
+  .why-card { width: 100%; max-width: 340px; }
+  .why-quote-card { margin-top: -40px; padding: 20px; font-size: 14px; width: 100%; }
+  .why-pills { padding-top: 0; width: 100%; align-items: center; }
+  .why-pill { width: 100%; justify-content: center; }
+  
+  .disc-text p { max-width: 100%; text-align: center; margin: 0 auto; }
+  .disc-label { text-align: center; }
+}
+
+/* --- MOBILE (Up to 500px) --- */
+@media (max-width: 500px) {
+  .vnav { bottom: 15px; padding: 8px 16px; gap: 6px; }
+  .vnav-link { width: 40px; height: 40px; }
+  .vnav-link svg { width: 18px; height: 18px; }
+
+  .hero { min-height: 100vh; }
+  .hero-wordmark { font-size: clamp(48px, 18vw, 80px); }
+  
+  .bio-toggle { flex-direction: column; width: 100%; border-radius: 20px; }
+  .bio-tab { width: 100%; justify-content: center; padding: 10px; }
+  .bio-content { font-size: 22px; }
+
+  .folders { grid-template-columns: 1fr; gap: 40px; }
+  .folder { height: 260px; }
+  
+  .contact-box { padding: 30px 16px; border-radius: 24px; }
+  .imsg-bubble { font-size: 14px; padding: 12px 16px; }
+  .cc-name { font-size: 24px !important; }
+  .cc-photo { height: 160px; }
+  .cc-info .cc-role { margin-bottom: 12px; }
+
+  .resume-btn { top: 15px; right: 15px; padding: 6px 12px; font-size: 11px; }
+  
+  .hero-model spline-viewer { transform: scale(0.8); }
+  .hero-tip { font-size: 9px; letter-spacing: 0.1em; }
+  
+  .main { padding: 0 16px; }
+  .bio { padding: 80px 0; padding-left: 20px; padding-right: 20px; }
+  .bio-toggle { margin-left: 0; }
+  .bio-content { font-size: 18px; line-height: 1.5; }
+  
+  .disc { padding: 40px 16px; }
+  .disc-art { height: 260px; }
+  .card-arc { font-size: 40px; width: 180px; height: 140px; }
+  .card-graph { width: 160px; height: 100px; }
+  .card-eth { width: 140px; }
+}
+
+/* --- FIX FOR TOUCH DEVICES (Disable Hover Effects) --- */
+@media (hover: none) {
+  .cursor, .cursor-dot { display: none !important; }
+  body { cursor: auto !important; }
+  .vnav-link:hover, .tile:hover, .drag-item:hover, .folder:hover .folder-label { transform: none !important; }
+  .tile:hover .tile-bg { transform: none !important; }
+}
 
