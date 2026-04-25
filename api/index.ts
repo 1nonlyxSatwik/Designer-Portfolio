@@ -11,3 +11,6 @@ app.listen(port, (err?: any) => {
 
   logger.info({ port }, "Server listening");
 });
+
+export default app;
+
