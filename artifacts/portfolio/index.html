@@ -38,7 +38,7 @@
       <a href="#why" class="vnav-link" data-cursor="hover" aria-label="Why I design">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
       </a>
-      <a href="#apart" class="vnav-link" data-cursor="hover" aria-label="Apart from design">
+      <a href="#apart" class="vnav-link" data-cursor="hover" aria-label="Apart from overthinking">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
       </a>
     </nav>
@@ -295,47 +295,41 @@
             <div class="exp-folders">
               <!-- Rehyve -->
               <div class="exp-folder folder-rehyve">
-                <div class="folder-tab-wrap"><div class="folder-tab">Rehyve</div></div>
+                <div class="folder-tab-wrap"><div class="folder-tab">Side Hustle #001</div></div>
                 <div class="folder-body">
                   <div class="folder-header">
-                    <span class="folder-role">Industrial Design Intern</span>
-                    <span class="folder-date">May – July 2024</span>
+                    <span class="folder-role">Uprising Studios</span>
+                    <span class="folder-date">Self-initiated</span>
                   </div>
-                  <ul class="folder-bullets">
-                    <li>Using form language, tactile grip features, and label hierarchy to stand out quickly in crowded retail environments, I designed and prototyped several packaging and bottle concepts that increased shelf visibility by about 45%.</li>
-                    <li>Created lightweight structural solutions and cost-effective CMF strategies that reduced material consumption by 12–15%.</li>
-                    <li>Produced more than 20 high-fidelity renders, and product storyboards that helped the team move more quickly from idea to prototype to investor pitch by reducing approval cycles by about 30% and accelerating internal alignment.</li>
-                  </ul>
+                  <div class="folder-bullets">
+                    Uprising Studios is my self-initiated freelance venture — a one-person studio focused on web design and digital branding. I built everything from scratch: the name, the visual identity, the service structure, and the website itself. No clients yet, but the whole point was to think like a studio owner, not just a student — learning end-to-end product thinking, from how a brand feels to how it actually gets built and shipped.
+                  </div>
                 </div>
               </div>
               
-              <!-- Sstudize -->
               <div class="exp-folder folder-sstudize">
-                <div class="folder-tab-wrap"><div class="folder-tab">Sstudize</div></div>
+                <div class="folder-tab-wrap"><div class="folder-tab">Where It Started</div></div>
                 <div class="folder-body">
                   <div class="folder-header">
-                    <span class="folder-role">Senior Product Designer (UI/UX)</span>
-                    <span class="folder-date">Sept – Dec 2025</span>
+                    <span class="folder-role">First Projects (Edusity & SatKart)</span>
+                    <span class="folder-date">2024 – 2025</span>
                   </div>
-                  <ul class="folder-bullets">
-                    <li>Led the end-to-end redesign of the core web platform, improving user retention by 22%.</li>
-                    <li>Developed a comprehensive design system to streamline developer handoff and ensure brand consistency across all touchpoints.</li>
-                  </ul>
+                  <div class="folder-bullets">
+                    Edusity and SatKart were my first real attempts at building and shipping something from scratch — a learning platform UI and an e-commerce frontend. Not my best work by a long shot, but that's the point. These are where I figured out how to actually deploy things, break things, and fix them without anyone telling me what to do. Both still live on Vercel. Both humbled me more than any YouTube tutorial ever could.
+                  </div>
                 </div>
               </div>
 
-              <!-- IITG -->
               <div class="exp-folder folder-iitg">
-                <div class="folder-tab-wrap"><div class="folder-tab">IIT Guwahati</div></div>
+                <div class="folder-tab-wrap"><div class="folder-tab">Overthinker.design</div></div>
                 <div class="folder-body">
                   <div class="folder-header">
-                    <span class="folder-role">Creative Direction (Product & Visual Design)</span>
-                    <span class="folder-date">May – July 2024</span>
+                    <span class="folder-role">Portfolio Project</span>
+                    <span class="folder-date">Current</span>
                   </div>
-                  <ul class="folder-bullets">
-                    <li>Directed the visual identity for the annual design festival, managing a team of 12 designers.</li>
-                    <li>Orchestrated cross-disciplinary workshops combining industrial design and digital prototyping.</li>
-                  </ul>
+                  <div class="folder-bullets">
+                    This portfolio is probably the most honest thing I've built — designed in Figma, built in React + Vite, and shipped live. The draggable elements, the fake AirDrop card, the "Intern / Hire" modal, the chat bubble that admits it has no purpose — none of that was random. Every piece was a deliberate design decision, trying to make a portfolio that actually has a personality instead of just a list of skills. It's the project I'm most proud of so far.
+                  </div>
                 </div>
               </div>
             </div>
@@ -448,17 +442,14 @@
             </div>
 
             <div class="why-pills">
-              <button class="why-pill" data-cursor="hover">
-                <span class="pill-icon">▭</span> UI / UX design
+              <button class="why-pill" data-cursor="hover" onclick="document.querySelector('.exp-board').classList.add('open'); window.location.href='#exp';">
+                <span class="pill-icon">▭</span> Side Hustle #001
               </button>
-              <button class="why-pill" data-cursor="hover">
-                <span class="pill-icon">⬡</span> Industrial design
+              <button class="why-pill" data-cursor="hover" onclick="document.querySelector('.exp-board').classList.add('open'); window.location.href='#exp';">
+                <span class="pill-icon">⬡</span> Where It Started
               </button>
-              <button class="why-pill" data-cursor="hover">
-                <span class="pill-icon">▶</span> Motion graphics
-              </button>
-              <button class="why-pill" data-cursor="hover">
-                <span class="pill-icon">◈</span> Graphic design
+              <button class="why-pill" data-cursor="hover" onclick="document.querySelector('.exp-board').classList.add('open'); window.location.href='#exp';">
+                <span class="pill-icon">▶</span> Overthinker.design
               </button>
             </div>
           </div>
@@ -480,14 +471,13 @@
           </div>
           <div class="disc-text">
             <div class="disc-label">UI UX design</div>
-            <p>I think of UI and UX as paying attention to how people move, hesitate, tap, and get confused.</p>
-            <p>When something works well, users don't think about the interface at all. They just keep going.</p>
+            <p>I design for the moment someone almost gives up — and doesn't. Good UI is invisible. Nobody notices the button that was perfectly placed, the spacing that felt natural, the flow that just made sense. That's what I'm chasing.</p>
           </div>
         </section>
 
         <!-- APART FROM DESIGN: FOLDERS -->
         <section class="apart" id="apart">
-          <h2 class="apart-bg">Apart from design</h2>
+          <h2 class="apart-bg">Apart from overthinking</h2>
           <div class="folders">
             <div class="folder" data-folder="music" data-cursor="hover">
               <div class="folder-back"></div>
@@ -593,7 +583,7 @@
                             <span class="cc-status">● AVAILABLE</span>
                             <span class="cc-id">MAIL.S4TWIK</span>
                           </div>
-                          <div class="cc-photo"></div>
+                          <div class="cc-photo mail-photo"></div>
                           <div class="cc-info">
                             <h3 class="cc-name">MAIL ME</h3>
                             <p class="cc-role">DESIGNER & CREATIVE</p>
@@ -620,7 +610,7 @@
                             <span class="cc-status">● AVAILABLE</span>
                             <span class="cc-id">SATWIK.DSGN</span>
                           </div>
-                          <div class="cc-photo"></div>
+                          <div class="cc-photo contact-photo"></div>
                           <div class="cc-info">
                             <h3 class="cc-name">SATWIK</h3>
                             <p class="cc-role">DESIGNER & CREATIVE</p>

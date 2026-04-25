@@ -316,9 +316,12 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
    ========================================= */
 .hero {
   position: relative;
-  height: 120vh;
-  min-height: 950px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100vh; /* Changed from 120vh to fit viewport */
+  min-height: 800px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
   overflow: hidden;
 }
 #hero-canvas {
@@ -330,17 +333,24 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
 }
 .hero-tip {
   position: absolute;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .2em;
   color: #999;
   z-index: 10;
+  pointer-events: none;
 }
 .hero-wordmark {
   position: absolute;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: clamp(72px, 13vw, 200px);
@@ -2068,12 +2078,16 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   position: absolute;
   top: 50px; left: 0;
   width: 100%; height: 100%;
-  background: url('/images/photo-hoodie.jpg') center top/cover no-repeat;
   opacity: 0.6;
   filter: grayscale(1) contrast(1.2);
   pointer-events: none;
   transition: opacity 0.4s;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+.mail-peek .mini-card-photo-peek { background-image: url('/images/photo-about.jpg'); }
+.contact-peek .mini-card-photo-peek { background-image: url('/images/photo-hoodie.jpg'); }
 
 /* Hide peek photo when expanded */
 .mini-card.full-view .mini-card-photo-peek {
@@ -2129,7 +2143,9 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 }
 .cc-header { display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; color: #bbb; margin-bottom: 24px; }
 .cc-status { color: #10B981; }
-.cc-photo { width: 100%; height: 240px; background: url('/images/photo-hoodie.jpg') center/cover no-repeat; border-radius: 12px; margin-bottom: 24px; }
+.cc-photo { width: 100%; height: 240px; border-radius: 12px; margin-bottom: 24px; }
+.mail-photo { background: url('/images/photo-about.jpg') center/cover no-repeat; }
+.contact-photo { background: url('/images/photo-hoodie.jpg') center/cover no-repeat; }
 .cc-info .cc-name { font-size: 36px; font-weight: 700; color: #000; margin: 0; letter-spacing: -0.02em; }
 .cc-role { font-size: 15px; color: #666; margin: 4px 0 24px; }
 .cc-details { border-top: 1px solid #f0f0f0; padding-top: 20px; }
