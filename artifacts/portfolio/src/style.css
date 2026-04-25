@@ -340,7 +340,7 @@ h3 { font-size: clamp(28px, 3vw, 40px); }
 }
 .hero-wordmark {
   position: absolute;
-  top: 15%; left: 50%; transform: translate(-50%, -50%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: clamp(72px, 13vw, 200px);
