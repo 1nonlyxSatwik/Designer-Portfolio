@@ -7,6 +7,10 @@ import { logger } from "./lib/logger.js";
 
 const app: Express = express();
 
+app.get("/", (_req, res) => {
+  res.json({ status: "running", message: "Designer Portfolio API Server" });
+});
+
 app.use(healthRouter);
 app.use(
   pinoHttp({
