@@ -47,6 +47,40 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
 });
 
 /* =========================================
+   MAGNETIC FOLDERS
+   ========================================= */
+document.querySelectorAll('.folder').forEach((folder) => {
+  const folderIcon = folder.querySelector('.folder-front');
+  const folderBack = folder.querySelector('.folder-back');
+  
+  if (!folderIcon || !folderBack) return;
+
+  const xTo = gsap.quickTo(folderIcon, "x", { duration: 0.4, ease: "power2.out" });
+  const yTo = gsap.quickTo(folderIcon, "y", { duration: 0.4, ease: "power2.out" });
+  const rotXTo = gsap.quickTo(folderIcon, "rotateX", { duration: 0.4, ease: "power2.out" });
+  
+  const bxTo = gsap.quickTo(folderBack, "x", { duration: 0.4, ease: "power2.out" });
+  const byTo = gsap.quickTo(folderBack, "y", { duration: 0.4, ease: "power2.out" });
+
+  folder.addEventListener('mousemove', (e) => {
+    const rect = folder.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    xTo(x * 0.15);
+    yTo(y * 0.1);
+    rotXTo(-55);
+    bxTo(x * 0.08);
+    byTo(y * 0.05);
+  });
+
+  folder.addEventListener('mouseleave', () => {
+    gsap.to(folderIcon, { x: 0, y: 0, rotateX: 0, duration: 0.8, ease: 'elastic.out(1, 0.4)' });
+    gsap.to(folderBack, { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.4)' });
+  });
+});
+
+/* =========================================
    THREE.JS HERO — floating glass blocks
    ========================================= */
 (function initHero() {
@@ -248,9 +282,20 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
   canvas.addEventListener('pointerdown', pointerDown);
   window.addEventListener('pointerup', pointerUp);
 
+  // Intersection Observer for performance
+  let isVisible = true;
+  const observer = new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting;
+  }, { threshold: 0.01 });
+  observer.observe(canvas);
+
   // Animate
   const clock = new THREE.Clock();
   function tick() {
+    if (!isVisible) {
+      requestAnimationFrame(tick);
+      return;
+    }
     const t = clock.getElapsedTime();
 
     cube.position.y = 0.3 + Math.sin(t * 1.2) * 0.12;
@@ -333,8 +378,22 @@ document.querySelectorAll('[data-cursor="hover"]').forEach((el) => {
   dots.forEach((d, j) => d.addEventListener('click', () => go(j)));
 
   let auto = setInterval(() => go(idx + 1), 6000);
-  track.addEventListener('mouseenter', () => clearInterval(auto));
-  track.addEventListener('mouseleave', () => { auto = setInterval(() => go(idx + 1), 6000); });
+  
+  // Pause carousel when out of view
+  const carouselObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      if (!auto) auto = setInterval(() => go(idx + 1), 6000);
+    } else {
+      clearInterval(auto);
+      auto = null;
+    }
+  }, { threshold: 0.1 });
+  carouselObserver.observe(track);
+
+  track.addEventListener('mouseenter', () => { clearInterval(auto); auto = null; });
+  track.addEventListener('mouseleave', () => { 
+    if (!auto) auto = setInterval(() => go(idx + 1), 6000); 
+  });
 })();
 
 /* =========================================
@@ -453,7 +512,7 @@ gsap.to('.signature', {
 });
 
 // Big bg text parallax
-gsap.utils.toArray('.exp-bg, .apart-bg, .interact-bg-text').forEach((el) => {
+gsap.utils.toArray('.interact-bg-text').forEach((el) => {
   gsap.to(el, {
     x: -80,
     scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true }
@@ -493,4 +552,86 @@ vnavLinks.forEach((link) => {
   });
 });
 
+/* =========================================
+   SPLINE OPTIMIZATION & INTERACTION
+   ========================================= */
+const spline = document.querySelector('spline-viewer');
+const heroModel = document.querySelector('.hero-model');
+const modelOverlay = document.querySelector('.model-interaction-overlay');
+
+if (spline) {
+  // Intersection Observer for performance
+  const splineObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      spline.style.visibility = 'visible';
+    } else {
+      spline.style.visibility = 'hidden';
+    }
+  }, { threshold: 0.1 });
+  splineObserver.observe(spline);
+
+  // CLICK-TO-INTERACT LOGIC
+  if (modelOverlay && heroModel) {
+    modelOverlay.addEventListener('mousedown', () => {
+      heroModel.classList.add('is-interacting');
+      modelOverlay.style.pointerEvents = 'none';
+      modelOverlay.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mouseup', () => {
+      heroModel.classList.remove('is-interacting');
+      if (modelOverlay) {
+        modelOverlay.style.pointerEvents = 'auto';
+        modelOverlay.style.cursor = 'grab';
+      }
+    });
+  }
+
+  // Disable interaction on scroll to prevent "violent" movement
+  let scrollTimeout;
+  lenis.on('scroll', () => {
+    document.body.classList.add('is-scrolling');
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      document.body.classList.remove('is-scrolling');
+    }, 150);
+  });
+}
+
 console.log('[portfolio] booted');
+
+/* =========================================
+   CONTACT CARD INTERACTION
+   ========================================= */
+const miniCards = document.querySelectorAll('.mini-card');
+
+miniCards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!card.classList.contains('full-view')) {
+      // Close any other open card first
+      miniCards.forEach(c => c.classList.remove('full-view'));
+      
+      card.classList.add('full-view');
+      lenis.stop();
+    }
+  });
+
+  const closeBtn = card.querySelector('.cc-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      card.classList.remove('full-view');
+      lenis.start();
+    });
+  }
+});
+
+// Global click listener to close any expanded card
+document.addEventListener('click', (e) => {
+  const openCard = document.querySelector('.mini-card.full-view');
+  if (openCard && !openCard.contains(e.target)) {
+    openCard.classList.remove('full-view');
+    lenis.start();
+  }
+});
