@@ -635,3 +635,13 @@ document.addEventListener('click', (e) => {
     lenis.start();
   }
 });
+
+/* =========================================
+   PIXEL CARD ANIMATION INTEGRATION
+   ========================================= */
+import { initPixelCard } from './pixelCardVanilla.js';
+
+document.querySelectorAll('.mini-card').forEach(card => {
+  initPixelCard(card, 'pink');
+});
+
