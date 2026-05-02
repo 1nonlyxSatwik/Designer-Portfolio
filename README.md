@@ -208,6 +208,7 @@ That idea drove this project.
 **Satwik Mani Tripathi**
 
 Creative Developer • Designer • Overthinker
+Manitripathisatwik@gmail.com
 
 ---
 
