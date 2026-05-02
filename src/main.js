@@ -465,6 +465,29 @@ document.querySelectorAll('.folder').forEach((folder) => {
       pills.forEach((q) => q.classList.remove('active'));
       p.classList.add('active');
       gsap.fromTo('.why-portrait', { scale: 0.96, opacity: 0.7 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out' });
+      
+      // Auto-open envelope if a specific experience is targeted
+      const envelope = document.getElementById('experience-envelope');
+      if (envelope) {
+        if (!envelope.classList.contains('is-open')) {
+          envelope.click();
+        }
+        
+        // Wait for animation then scroll the target card into view inside the envelope's scrollable area
+        setTimeout(() => {
+          const hash = window.location.hash;
+          if (hash) {
+            const targetCard = document.querySelector(hash);
+            const contentArea = envelope.querySelector('.envelope-content');
+            if (targetCard && contentArea && contentArea.contains(targetCard)) {
+              contentArea.scrollTo({
+                top: targetCard.offsetTop - contentArea.offsetTop - 20,
+                behavior: 'smooth'
+              });
+            }
+          }
+        }, 850);
+      }
     });
   });
 })();
@@ -482,7 +505,7 @@ gsap.utils.toArray('.tile').forEach((el, i) => {
     });
 });
 
-gsap.utils.toArray('.case-slide, .why-modal, .disc, .folder, .imessage, .wallet, .exp-board').forEach((el) => {
+gsap.utils.toArray('.case-slide, .why-modal, .disc, .folder, .imessage, .wallet, .timeline-card').forEach((el) => {
   gsap.fromTo(el,
     { y: 50, opacity: 0 },
     { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
@@ -645,3 +668,25 @@ document.querySelectorAll('.mini-card').forEach(card => {
   initPixelCard(card, 'pink');
 });
 
+
+/* =========================================
+   ENVELOPE INTERACTION
+   ========================================= */
+(function initEnvelope() {
+  const envelope = document.getElementById('experience-envelope');
+  if (!envelope) return;
+
+  envelope.addEventListener('click', (e) => {
+    // Don't close if clicking inside the content while open
+    if (envelope.classList.contains('is-open') && e.target.closest('.envelope-content')) {
+      return;
+    }
+    envelope.classList.toggle('is-open');
+    
+    // Thread now remains on the top part only and follows it automatically as it is a child element
+    // Refresh scroll triggers since the section height expands/collapses
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 850);
+  });
+})();

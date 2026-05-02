@@ -286,139 +286,152 @@
           </div>
         </section>
 
-        <!-- EXPERIENCE SCRAPBOOK -->
+        <!-- EXPERIENCE SECTION (ENVELOPE REVEAL) -->
         <section class="exp" id="exp">
           <h2 class="exp-bg">Experience</h2>
           
-          <div class="exp-board" onclick="this.classList.toggle('open')" data-cursor="hover">
-            <!-- Hidden folders revealed on open -->
-            <div class="exp-folders">
-              <!-- Rehyve -->
-              <div class="exp-folder folder-rehyve">
-                <div class="folder-tab-wrap"><div class="folder-tab">Side Hustle #001</div></div>
-                <div class="folder-body">
-                  <div class="folder-header">
-                    <span class="folder-role">Uprising Studios</span>
-                    <span class="folder-date">Self-initiated</span>
+          <div class="envelope-container" id="experience-envelope" data-cursor="hover">
+            <!-- Top Half of Envelope -->
+            <div class="envelope-half envelope-top">
+              <div class="envelope-paper">
+                <div class="collage-wrapper">
+                  <!-- Stamp (Top Left) -->
+                  <div class="exp-sticker exp-stamp">
+                    <div class="stamp-inner">
+                      <span class="stamp-num">06</span>
+                      <span class="stamp-side">VIEWS</span>
+                      <div class="stamp-img"></div>
+                      <div style="font-size:7px; color:#999; text-align:center; font-weight:700;">POSTES<br>POSTAGE</div>
+                    </div>
                   </div>
-                  <div class="folder-bullets">
-                    Uprising Studios is my self-initiated freelance venture — a one-person studio focused on web design and digital branding. I built everything from scratch: the name, the visual identity, the service structure, and the website itself. No clients yet, but the whole point was to think like a studio owner, not just a student — learning end-to-end product thinking, from how a brand feels to how it actually gets built and shipped.
+
+                  <!-- Lips (Top Right) -->
+                  <div class="exp-sticker exp-lips">
+                    <img src="/images/sticker-lips.png" alt="Lips" loading="lazy">
+                  </div>
+
+                  <!-- Oppenheimer Poster -->
+                  <div class="exp-sticker exp-oppenheimer">
+                    <img src="/images/sticker-oppenheimer.jpg" alt="Oppenheimer" loading="lazy">
+                  </div>
+
+                  <!-- Donkey Drawing -->
+                  <div class="exp-sticker exp-donkey">
+                    <img src="/images/sticker-donkey.png" alt="Donkey" loading="lazy">
+                  </div>
+
+                  <!-- Porsche (Left) -->
+                  <div class="exp-sticker exp-porsche">
+                    <img src="/images/sticker-porsche.jpg" alt="Porsche" loading="lazy">
+                  </div>
+
+                  <!-- Frank Ocean -->
+                  <div class="exp-sticker exp-frank">
+                    <img src="/images/sticker-frank.png" alt="Frank Ocean" loading="lazy">
                   </div>
                 </div>
               </div>
-              
-              <div class="exp-folder folder-sstudize">
-                <div class="folder-tab-wrap"><div class="folder-tab">Where It Started</div></div>
-                <div class="folder-body">
-                  <div class="folder-header">
-                    <span class="folder-role">First Projects (Edusity & SatKart)</span>
-                    <span class="folder-date">2024 – 2025</span>
-                  </div>
-                  <div class="folder-bullets">
-                    Edusity and SatKart were my first real attempts at building and shipping something from scratch — a learning platform UI and an e-commerce frontend. Not my best work by a long shot, but that's the point. These are where I figured out how to actually deploy things, break things, and fix them without anyone telling me what to do. Both still live on Vercel. Both humbled me more than any YouTube tutorial ever could.
-                  </div>
-                </div>
-              </div>
-
-              <div class="exp-folder folder-iitg">
-                <div class="folder-tab-wrap"><div class="folder-tab">Overthinker.design</div></div>
-                <div class="folder-body">
-                  <div class="folder-header">
-                    <span class="folder-role">Portfolio Project</span>
-                    <span class="folder-date">Current</span>
-                  </div>
-                  <div class="folder-bullets">
-                    This portfolio is probably the most honest thing I've built — designed in Figma, built in React + Vite, and shipped live. The draggable elements, the fake AirDrop card, the "Intern / Hire" modal, the chat bubble that admits it has no purpose — none of that was random. Every piece was a deliberate design decision, trying to make a portfolio that actually has a personality instead of just a list of skills. It's the project I'm most proud of so far.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- TOP HALF -->
-            <div class="half-wrapper top-half">
-              <div class="bg-half bg-top"></div>
-              
-              <!-- Stamp (Top Left) -->
-              <div class="exp-sticker exp-stamp">
-                <div class="stamp-inner">
-                  <span class="stamp-num">06</span>
-                  <span class="stamp-side">VIEWS</span>
-                  <div class="stamp-img"></div>
-                  <div style="font-size:7px; color:#999; text-align:center; font-weight:700;">POSTES<br>POSTAGE</div>
-                </div>
-              </div>
-
-              <!-- Lips (Top Right) -->
-              <div class="exp-sticker exp-lips">
-                <img src="/images/sticker-lips.png" alt="Lips" loading="lazy">
-              </div>
-
-              <!-- Oppenheimer Poster -->
-              <div class="exp-sticker exp-oppenheimer">
-                <img src="/images/sticker-oppenheimer.jpg" alt="Oppenheimer" loading="lazy">
-              </div>
-
-              <!-- Donkey Drawing -->
-              <div class="exp-sticker exp-donkey">
-                <img src="/images/sticker-donkey.png" alt="Donkey" loading="lazy">
-              </div>
-
-              <!-- Porsche (Left) -->
-              <div class="exp-sticker exp-porsche">
-                <img src="/images/sticker-porsche.jpg" alt="Porsche" loading="lazy">
-              </div>
-
-              <!-- Frank Ocean (Top Right-ish) -->
-              <div class="exp-sticker exp-frank">
-                <img src="/images/sticker-frank.png" alt="Frank Ocean" loading="lazy">
-              </div>
-
-              <!-- Interactive Line (Thread) -->
-              <svg class="exp-curved-line" viewBox="0 0 1100 600">
-                <path class="thread-spiral" fill="none" stroke="#A0A0A8" stroke-width="4" stroke-linecap="round"/>
+              <!-- Flap shadow/edge -->
+              <div class="envelope-flap-edge"></div>
+              <!-- Lock Oval (Top) -->
+              <div class="lock-oval"></div>
+              <!-- Interactive Line (Thread) - Fixed to top flap -->
+              <svg class="exp-curved-line" viewBox="0 0 1100 640">
+                <path class="thread-spiral" fill="none" stroke="#888" stroke-width="5" stroke-linecap="round" d="M 550 281 L 550 359" />
               </svg>
-              
-              <!-- Top Node -->
-              <div class="exp-node node-top"><span></span></div>
             </div>
 
-            <!-- BOTTOM HALF -->
-            <div class="half-wrapper bottom-half">
-              <div class="bg-half bg-bottom"></div>
-              <div class="exp-divider"></div>
+            <!-- Content revealed inside -->
+            <div class="envelope-content" data-lenis-prevent>
+              <div class="exp-timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-items">
+                  <!-- Rehyve -->
+                  <div class="timeline-card" id="exp-hustle" data-cursor="hover">
+                    <div class="card-date">Current</div>
+                    <div class="card-content">
+                      <div class="card-header">
+                        <span class="card-tag">Side Hustle #001</span>
+                        <h3 class="card-role">Uprising Studios</h3>
+                      </div>
+                      <p class="card-desc">
+                        Uprising Studios is my self-initiated freelance venture — a one-person studio focused on web design and digital branding. Learning end-to-end product thinking, from how a brand feels to how it actually gets built and shipped.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <!-- First Projects -->
+                  <div class="timeline-card" id="exp-started" data-cursor="hover">
+                    <div class="card-date">2024 — 2025</div>
+                    <div class="card-content">
+                      <div class="card-header">
+                        <span class="card-tag">Where It Started</span>
+                        <h3 class="card-role">First Projects (Edusity & SatKart)</h3>
+                      </div>
+                      <p class="card-desc">
+                        Edusity and SatKart were my first real attempts at building and shipping something from scratch — a learning platform UI and an e-commerce frontend. Both still live on Vercel.
+                      </p>
+                    </div>
+                  </div>
 
-              <!-- Marlboro (Bottom Left) -->
-              <div class="exp-sticker exp-marlboro">
-                <img src="/images/sticker-marlboro.png" alt="Marlboro" loading="lazy">
-              </div>
-
-              <!-- Zeppelin Ticket (Bottom Left) -->
-              <div class="exp-sticker exp-zeppelin">
-                <img src="/images/sticker-zeppelin.png" alt="Led Zeppelin" loading="lazy">
-              </div>
-
-              <!-- Tame Impala (Center Right) -->
-              <div class="exp-sticker exp-tameimpala">
-                <img src="/images/sticker-tameimpala.jpg" alt="Tame Impala" loading="lazy">
-              </div>
-
-              <!-- ASAP Rocky (Bottom Left) -->
-              <div class="exp-sticker exp-asap">
-                <img src="/images/sticker-asap.png" alt="ASAP Rocky" loading="lazy">
-              </div>
-
-              <!-- Ticket (Bottom Right) -->
-              <div class="exp-sticker exp-ticket">
-                <div class="ticket ticket-xxx">
-                  <div class="ticket-title">XXX<br/>TENTACION</div>
-                  <div class="ticket-side">ENTRADA</div>
+                  <!-- Overthinker -->
+                  <div class="timeline-card" id="exp-overthinker" data-cursor="hover">
+                    <div class="card-date">2026</div>
+                    <div class="card-content">
+                      <div class="card-header">
+                        <span class="card-tag">Overthinker.design</span>
+                        <h3 class="card-role">Portfolio Project</h3>
+                      </div>
+                      <p class="card-desc">
+                        This portfolio is probably the most honest thing I've built — designed in Figma, built in React + Vite, and shipped live. Every piece was a deliberate design decision.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <!-- Bottom Node -->
-              <div class="exp-node node-bottom"><span></span></div>
             </div>
+
+            <!-- Bottom Half of Envelope -->
+            <div class="envelope-half envelope-bottom">
+              <div class="envelope-paper">
+                <div class="collage-wrapper">
+                  <!-- Marlboro -->
+                  <div class="exp-sticker exp-marlboro">
+                    <img src="/images/sticker-marlboro.png" alt="Marlboro" loading="lazy">
+                  </div>
+
+                  <!-- Zeppelin -->
+                  <div class="exp-sticker exp-zeppelin">
+                    <img src="/images/sticker-zeppelin.png" alt="Led Zeppelin" loading="lazy">
+                  </div>
+
+                  <!-- Tame Impala -->
+                  <div class="exp-sticker exp-tameimpala">
+                    <img src="/images/sticker-tameimpala.jpg" alt="Tame Impala" loading="lazy">
+                  </div>
+
+                  <!-- ASAP Rocky -->
+                  <div class="exp-sticker exp-asap">
+                    <img src="/images/sticker-asap.png" alt="ASAP Rocky" loading="lazy">
+                  </div>
+
+                  <!-- Ticket -->
+                  <div class="exp-sticker exp-ticket">
+                    <div class="ticket ticket-xxx">
+                      <div class="ticket-title">XXX<br/>TENTACION</div>
+                      <div class="ticket-side">ENTRADA</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Lock Oval (Bottom) -->
+              <div class="lock-oval second"></div>
+            </div>
+
+            <!-- Envelope Hint -->
+            <div class="envelope-hint">Click to open</div>
           </div>
+        </section>
         </section>
 
         <section class="why" id="why">
@@ -442,13 +455,13 @@
             </div>
 
             <div class="why-pills">
-              <button class="why-pill" data-cursor="hover" onclick="document.querySelector('.exp-board').classList.add('open'); window.location.href='#exp';">
+              <button class="why-pill" data-cursor="hover" onclick="window.location.href='#exp-hustle';">
                 <span class="pill-icon">▭</span> Side Hustle #001
               </button>
-              <button class="why-pill" data-cursor="hover" onclick="document.querySelector('.exp-board').classList.add('open'); window.location.href='#exp';">
+              <button class="why-pill" data-cursor="hover" onclick="window.location.href='#exp-started';">
                 <span class="pill-icon">⬡</span> Where It Started
               </button>
-              <button class="why-pill" data-cursor="hover" onclick="document.querySelector('.exp-board').classList.add('open'); window.location.href='#exp';">
+              <button class="why-pill" data-cursor="hover" onclick="window.location.href='#exp-overthinker';">
                 <span class="pill-icon">▶</span> Overthinker.design
               </button>
             </div>
