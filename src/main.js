@@ -366,6 +366,7 @@ document.querySelectorAll('.folder').forEach((folder) => {
   if (!track) return;
   const slides = track.querySelectorAll('.case-slide');
   const dots = document.querySelectorAll('.case-dots .dot');
+  if (slides.length === 0) return;
   let idx = 0;
 
   function go(i) {
