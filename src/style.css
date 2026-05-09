@@ -1094,7 +1094,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   transform: translateY(0);
   pointer-events: auto;
   transition-delay: 0.3s;
-  max-height: 850px; /* Increased height for all projects */
+  max-height: 1200px; /* Increased height to ensure all 3 projects are visible */
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 20px; /* Space for potential scrollbar */
@@ -2519,10 +2519,14 @@ body.theme-dark .card-desc {
   text-align: center;
   text-transform: none;
   white-space: nowrap;
-  overflow: hidden;
+  display: block;
+  overflow: visible;
   transform: scaleX(1.04);
   transform-origin: center bottom;
-  padding-bottom: 150px; /* ensure visibility at the very bottom */
+  padding-bottom: 150px;
+  z-index: 10;
+  position: relative;
+  opacity: 1 !important;
 }
 
 /* Consolidated to bottom */
