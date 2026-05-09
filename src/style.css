@@ -1004,7 +1004,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 }
 
 .envelope-container.is-open {
-  height: 1400px;
+  height: 1800px;
 }
 
 .envelope-half {
@@ -1032,13 +1032,13 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 }
 
 .envelope-container.is-open .envelope-top {
-  transform: translateY(-700px) rotateX(10deg);
+  transform: translateY(-900px) rotateX(10deg);
   opacity: 1; /* Keep visible */
   pointer-events: auto; /* Keep clickable */
 }
 
 .envelope-container.is-open .envelope-bottom {
-  transform: translateY(700px) rotateX(-10deg); /* Adjust throw distance */
+  transform: translateY(900px) rotateX(-10deg); /* Adjust throw distance */
   opacity: 1; /* Keep visible */
   pointer-events: auto; /* Keep clickable */
 }
@@ -1094,11 +1094,11 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   transform: translateY(0);
   pointer-events: auto;
   transition-delay: 0.3s;
-  max-height: 1300px; /* Increased height to ensure all 3 projects are visible */
+  max-height: 2000px; /* Massive height for scroll freedom */
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 20px; /* Space for potential scrollbar */
-  padding-bottom: 100px; /* Extra space at bottom to ensure last card scrolls into view */
+  padding-bottom: 300px; /* Huge extra space at bottom */
   scrollbar-width: thin;
   scrollbar-color: var(--accent-blue) transparent;
 }
@@ -1170,7 +1170,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   gap: 80px;
   position: relative;
   z-index: 2;
-  padding-bottom: 150px; /* Massive bottom padding to ensure the 3rd card is fully scrollable */
+  padding-bottom: 400px; /* Extreme bottom padding for the 'more scroll' request */
 }
 
 .timeline-card {
@@ -2525,7 +2525,7 @@ body.theme-dark .card-desc {
   overflow: visible;
   transform: scaleX(1.04);
   transform-origin: center bottom;
-  padding-bottom: 150px;
+  padding-bottom: 300px;
   z-index: 10;
   position: relative;
   opacity: 1 !important;
