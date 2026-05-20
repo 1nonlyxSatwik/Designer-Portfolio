@@ -543,21 +543,18 @@ gsap.utils.toArray('.interact-bg-text').forEach((el) => {
   });
 });
 
-// Dynamic theme switching based on section data-theme
-document.querySelectorAll('section[data-theme]').forEach((section) => {
-  const theme = section.getAttribute('data-theme');
+// Theme switch: white → black at experience section
+const expSection = document.getElementById('exp');
+if (expSection) {
   ScrollTrigger.create({
-    trigger: section,
-    start: 'top 50%',
-    end: 'bottom 50%',
-    onEnter: () => {
-      document.body.classList.toggle('theme-dark', theme === 'dark');
-    },
-    onEnterBack: () => {
-      document.body.classList.toggle('theme-dark', theme === 'dark');
-    }
+    trigger: expSection,
+    start: 'top 70%',
+    end: 'bottom top',
+    onEnter: () => document.body.classList.add('theme-dark'),
+    onEnterBack: () => document.body.classList.add('theme-dark'),
+    onLeaveBack: () => document.body.classList.remove('theme-dark'),
   });
-});
+}
 
 // Active state for left vertical nav
 const vnavLinks = document.querySelectorAll('.vnav-link');
@@ -696,31 +693,9 @@ document.querySelectorAll('.mini-card').forEach(card => {
     if (envelope.classList.contains('is-open') && e.target.closest('.envelope-content')) {
       return;
     }
-    
-    const opening = !envelope.classList.contains('is-open');
-    
-    if (opening) {
-      const content = envelope.querySelector('.envelope-content');
-      if (content) {
-        const contentHeight = content.scrollHeight;
-        const isMobile = window.innerWidth <= 768;
-        
-        const topPadding = isMobile ? 160 : 240;
-        const bottomPadding = 240;
-        const topFlapHeight = isMobile ? 200 : 320;
-        const bottomFlapHeight = isMobile ? 200 : 320;
-        
-        const openHeight = contentHeight + topPadding + bottomPadding;
-        envelope.style.setProperty('--envelope-open-height', `${openHeight}px`);
-        
-        const throwExtra = isMobile ? 40 : 80;
-        const translateDistance = openHeight - (2 * bottomFlapHeight) + throwExtra;
-        envelope.style.setProperty('--envelope-bottom-translate', `${translateDistance}px`);
-      }
-    }
-    
     envelope.classList.toggle('is-open');
     
+    // Thread now remains on the top part only and follows it automatically as it is a child element
     // Refresh scroll triggers since the section height expands/collapses
     setTimeout(() => {
       ScrollTrigger.refresh();
