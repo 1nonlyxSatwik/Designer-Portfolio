@@ -1657,31 +1657,38 @@ body.theme-dark .card-desc {
   position: absolute;
   inset: 0;
   padding: 60px 250px 100px;
-  font-size: 24px;
-  line-height: 1.8; /* Increased line-height */
-  color: rgba(110, 110, 115, 0.38); /* Lighter gray, higher opacity */
+  display: flex;
+  align-items: center; /* Vertically center the inner text block */
+  justify-content: center;
   pointer-events: none;
   user-select: none;
+  overflow: hidden;
+}
+.why-bg-text-inner {
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.8;
+  color: rgba(110, 110, 115, 0.38); /* Lighter gray, higher opacity */
   columns: 2;
   column-gap: 120px;
   column-fill: balance;
   text-align: justify;
-  overflow: hidden;
   transition: color 0.3s ease;
 }
-body.theme-dark .why-bg-text {
+body.theme-dark .why-bg-text-inner {
   color: rgba(245, 245, 250, 0.32); /* Lighter gray, higher opacity */
 }
 @media (max-width: 900px) {
   .why-bg-text {
     padding: 40px;
+  }
+  .why-bg-text-inner {
     columns: 1;
     font-size: 18px;
-    opacity: 1; /* Override opacity so we can use dynamic alpha colors */
     color: rgba(110, 110, 115, 0.34); /* Lighter gray, higher opacity */
     line-height: 1.7;
   }
-  body.theme-dark .why-bg-text {
+  body.theme-dark .why-bg-text-inner {
     color: rgba(245, 245, 250, 0.26); /* Lighter gray, higher opacity */
   }
 }
