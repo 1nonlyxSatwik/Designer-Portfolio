@@ -468,7 +468,7 @@ document.querySelectorAll('.folder').forEach((folder) => {
       gsap.fromTo('.why-portrait', { scale: 0.96, opacity: 0.7 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out' });
       
       // Auto-open envelope if a specific experience is targeted
-      const envelope = document.getElementById('experience-envelope');
+      const envelope = document.getElementById('projects-envelope');
       if (envelope) {
         if (!envelope.classList.contains('is-open')) {
           envelope.click();
@@ -685,7 +685,7 @@ document.querySelectorAll('.mini-card').forEach(card => {
    ENVELOPE INTERACTION
    ========================================= */
 (function initEnvelope() {
-  const envelope = document.getElementById('experience-envelope');
+  const envelope = document.getElementById('projects-envelope');
   if (!envelope) return;
 
   envelope.addEventListener('click', (e) => {
