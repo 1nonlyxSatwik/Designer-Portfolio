@@ -1659,7 +1659,7 @@ body.theme-dark .card-desc {
   padding: 60px 250px 100px;
   font-size: 24px;
   line-height: 1.6;
-  color: rgba(200, 200, 200, 0.12); /* Light Grey Subtle */
+  color: rgba(60, 60, 67, 0.28); /* Increased visibility on light theme */
   pointer-events: none;
   user-select: none;
   columns: 2;
@@ -1667,13 +1667,21 @@ body.theme-dark .card-desc {
   column-fill: balance;
   text-align: justify;
   overflow: hidden;
+  transition: color 0.3s ease;
+}
+body.theme-dark .why-bg-text {
+  color: rgba(235, 235, 245, 0.22); /* Increased visibility on dark theme */
 }
 @media (max-width: 900px) {
   .why-bg-text {
     padding: 40px;
     columns: 1;
     font-size: 18px;
-    opacity: 0.05;
+    opacity: 1; /* Override opacity so we can use dynamic alpha colors */
+    color: rgba(60, 60, 67, 0.24);
+  }
+  body.theme-dark .why-bg-text {
+    color: rgba(235, 235, 245, 0.18);
   }
 }
 
