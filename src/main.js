@@ -772,3 +772,173 @@ document.querySelectorAll('.mini-card').forEach(card => {
     });
   }
 })();
+
+/* =========================================
+   PROJECT SHOWCASE INTERACTIVE DEMOS
+   ========================================= */
+(function initProjectInteractions() {
+  // Project 01: Draggable mini OS windows
+  const miniOs = document.querySelector('.mini-os');
+  if (miniOs) {
+    const dragWindows = miniOs.querySelectorAll('.mini-window');
+    dragWindows.forEach((win) => {
+      let isDragging = false;
+      let startX, startY, origX, origY;
+
+      const header = win.querySelector('.mini-win-header');
+      (header || win).addEventListener('mousedown', (e) => {
+        isDragging = true;
+        win.style.zIndex = 100;
+        // Raise other windows' z-index down
+        dragWindows.forEach((w) => {
+          if (w !== win) w.style.zIndex = 10;
+        });
+
+        startX = e.clientX;
+        startY = e.clientY;
+        
+        // Parse left/top percents or px
+        const rect = win.getBoundingClientRect();
+        const parentRect = miniOs.getBoundingClientRect();
+        origX = rect.left - parentRect.left;
+        origY = rect.top - parentRect.top;
+
+        e.preventDefault();
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        let newX = origX + dx;
+        let newY = origY + dy;
+
+        // Keep bounds inside mini-os container
+        const maxW = miniOs.clientWidth - win.clientWidth;
+        const maxH = miniOs.clientHeight - win.clientHeight;
+
+        newX = Math.max(0, Math.min(newX, maxW));
+        newY = Math.max(0, Math.min(newY, maxH));
+
+        win.style.left = `${newX}px`;
+        win.style.top = `${newY}px`;
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Touch events support
+      (header || win).addEventListener('touchstart', (e) => {
+        isDragging = true;
+        win.style.zIndex = 100;
+        dragWindows.forEach((w) => {
+          if (w !== win) w.style.zIndex = 10;
+        });
+
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        const rect = win.getBoundingClientRect();
+        const parentRect = miniOs.getBoundingClientRect();
+        origX = rect.left - parentRect.left;
+        origY = rect.top - parentRect.top;
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const touch = e.touches[0];
+        const dx = touch.clientX - startX;
+        const dy = touch.clientY - startY;
+
+        let newX = origX + dx;
+        let newY = origY + dy;
+
+        const maxW = miniOs.clientWidth - win.clientWidth;
+        const maxH = miniOs.clientHeight - win.clientHeight;
+
+        newX = Math.max(0, Math.min(newX, maxW));
+        newY = Math.max(0, Math.min(newY, maxH));
+
+        win.style.left = `${newX}px`;
+        win.style.top = `${newY}px`;
+      });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+    });
+  }
+
+  // Project 02: Interactive Quiz Options
+  const quizCard = document.querySelector('.quiz-card-mock');
+  if (quizCard) {
+    const options = quizCard.querySelectorAll('.quiz-option');
+    const feedback = quizCard.querySelector('.quiz-feedback');
+
+    options.forEach((opt) => {
+      opt.addEventListener('click', () => {
+        // Clear previous selection
+        options.forEach((o) => {
+          o.classList.remove('selected-wrong', 'selected-correct');
+        });
+
+        const answerType = opt.getAttribute('data-quiz');
+        if (answerType === 'correct') {
+          opt.classList.add('selected-correct');
+          feedback.textContent = '🎉 Correct! CSS stands for Cascading Style Sheets.';
+          feedback.style.color = '#27C93F';
+        } else {
+          opt.classList.add('selected-wrong');
+          feedback.textContent = '❌ Try again! That is incorrect.';
+          feedback.style.color = '#FF5F56';
+        }
+      });
+    });
+  }
+
+  // Project 03: Simulated AI Terminal run
+  const btnRun = document.getElementById('btn-run-experiment');
+  const runOutput = document.getElementById('terminal-exp-output');
+  if (btnRun && runOutput) {
+    let running = false;
+    btnRun.addEventListener('click', () => {
+      if (running) return;
+      running = true;
+      btnRun.textContent = 'Building...';
+      btnRun.disabled = true;
+      runOutput.textContent = '[1/2] Analyzing prompt context & requirements...';
+      runOutput.style.color = 'rgba(255, 255, 255, 0.6)';
+
+      setTimeout(() => {
+        runOutput.textContent = '[2/2] Generating frontend component using AI...';
+      }, 800);
+
+      setTimeout(() => {
+        runOutput.textContent = '✔ Compilation Success: Generated AIComponent.tsx (14 lines, 1.2kB)';
+        runOutput.style.color = '#98C379';
+        btnRun.textContent = 'Run Experiment';
+        btnRun.disabled = false;
+        running = false;
+      }, 1600);
+    });
+  }
+
+  // GSAP Fade-in animations for project cards
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.utils.toArray('.project-showcase').forEach((card) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
+      });
+    });
+  }
+})();
