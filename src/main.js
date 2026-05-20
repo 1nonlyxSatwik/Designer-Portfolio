@@ -778,7 +778,7 @@ document.querySelectorAll('.mini-card').forEach(card => {
    ========================================= */
 (function initProjectInteractions() {
   // Project 01: Draggable mini OS windows
-  const miniOs = document.querySelector('.mini-os');
+  const miniOs = document.querySelector('.mini-desktop');
   if (miniOs) {
     const dragWindows = miniOs.querySelectorAll('.mini-window');
     dragWindows.forEach((win) => {
@@ -814,7 +814,7 @@ document.querySelectorAll('.mini-card').forEach(card => {
         let newX = origX + dx;
         let newY = origY + dy;
 
-        // Keep bounds inside mini-os container
+        // Keep bounds inside mini-desktop container
         const maxW = miniOs.clientWidth - win.clientWidth;
         const maxH = miniOs.clientHeight - win.clientHeight;
 
@@ -927,7 +927,7 @@ document.querySelectorAll('.mini-card').forEach(card => {
 
   // GSAP Fade-in animations for project cards
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.utils.toArray('.project-showcase').forEach((card) => {
+    gsap.utils.toArray('.project-card').forEach((card) => {
       gsap.from(card, {
         opacity: 0,
         y: 40,

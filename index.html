@@ -127,93 +127,103 @@
 
         <!-- SELECTED WORK (PROJECTS) -->
         <section class="projects" id="work">
+          <div class="projects-connector"></div>
+          
           <div class="projects-header">
+            <span class="projects-tag">Showcase</span>
             <h2 class="projects-title">Selected Work</h2>
             <p class="projects-subtitle">
               These are the projects where design, code, and curiosity came together. Each one taught me something different about building products, solving problems, and creating experiences people actually enjoy using.
             </p>
           </div>
 
-          <div class="projects-list">
-            <!-- PROJECT 01 -->
-            <div class="project-showcase" data-cursor="hover-large">
-              <div class="project-info">
-                <div class="project-meta">
-                  <span class="project-number">01</span>
-                  <div class="project-title-group">
-                    <h3 class="project-name">Fluxfolio</h3>
-                    <span class="project-tagline">OS-Inspired Interactive Portfolio</span>
+          <div class="projects-container">
+            <!-- PROJECT 01: FEATURED CARD (FLUXFOLIO) -->
+            <div class="project-card project-featured" data-cursor="hover-large">
+              <div class="project-card-badge">Featured Project</div>
+              <span class="card-number">01</span>
+              
+              <div class="project-content-wrapper">
+                <div class="project-info-side">
+                  <div class="project-meta-info">
+                    <h3 class="project-title">Fluxfolio</h3>
+                    <span class="project-badge">OS-Inspired Interactive Portfolio</span>
                   </div>
-                </div>
-                
-                <p class="project-desc">
-                  A portfolio designed to be experienced rather than simply viewed. Built around an operating-system-inspired interface with draggable elements, custom UI components, personality-driven storytelling, and interactive navigation. The goal was to transform a portfolio from a static document into a memorable digital experience.
-                </p>
+                  
+                  <p class="project-description-text">
+                    A portfolio designed to be experienced rather than simply viewed. Built around an operating-system-inspired interface with draggable elements, custom UI components, personality-driven storytelling, and interactive navigation. The goal was to transform a portfolio from a static document into a memorable digital experience.
+                  </p>
 
-                <div class="project-highlights">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>Custom OS-inspired interface</li>
-                    <li>Draggable components</li>
-                    <li>Interactive UI system</li>
-                    <li>Responsive design</li>
-                    <li>Personality-first storytelling</li>
-                  </ul>
-                </div>
-
-                <div class="project-footer">
-                  <div class="project-tech">
-                    <span class="tech-pill">React</span>
-                    <span class="tech-pill">TypeScript</span>
-                    <span class="tech-pill">Tailwind CSS</span>
-                    <span class="tech-pill">Figma</span>
-                    <span class="tech-pill">Vercel</span>
-                  </div>
-                  <a href="https://github.com/1nonlyxSatwik/Designer-Portfolio" target="_blank" class="project-link">
-                    View Project
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="project-preview">
-                <!-- Browser Window Mockup for Fluxfolio Preview -->
-                <div class="mock-browser">
-                  <div class="mock-header">
-                    <div class="mock-dots">
-                      <span class="mock-dot red"></span>
-                      <span class="mock-dot yellow"></span>
-                      <span class="mock-dot green"></span>
+                  <div class="project-bullets">
+                    <div class="bullet-item">
+                      <span class="bullet-icon">✦</span>
+                      <span class="bullet-text">Custom OS-inspired interface with rich widgets</span>
                     </div>
-                    <div class="mock-address">fluxfolio.os</div>
+                    <div class="bullet-item">
+                      <span class="bullet-icon">✦</span>
+                      <span class="bullet-text">Fully draggable folder and window components</span>
+                    </div>
+                    <div class="bullet-item">
+                      <span class="bullet-icon">✦</span>
+                      <span class="bullet-text">Smooth scroll integration via GSAP &amp; Lenis</span>
+                    </div>
                   </div>
-                  <div class="mock-body p01-mock-body">
-                    <!-- Interactive mini OS elements -->
-                    <div class="mini-os">
-                      <div class="mini-window drag-element" style="top: 10%; left: 10%;">
-                        <div class="mini-win-header">
-                          <span>About.txt</span>
-                          <span class="mini-win-dot"></span>
-                        </div>
-                        <div class="mini-win-body">
-                          <p>Hi, I'm Satwik...</p>
-                        </div>
+
+                  <div class="project-tech-stack">
+                    <span class="stack-badge">React</span>
+                    <span class="stack-badge">TypeScript</span>
+                    <span class="stack-badge">Tailwind CSS</span>
+                    <span class="stack-badge">Figma</span>
+                    <span class="stack-badge">Vercel</span>
+                  </div>
+
+                  <div class="project-buttons">
+                    <a href="#hero" class="btn-primary" data-cursor="hover">
+                      <span>Live Demo</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </a>
+                    <a href="https://github.com/1nonlyxSatwik/Designer-Portfolio" target="_blank" class="btn-secondary" data-cursor="hover">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                      <span>GitHub</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-preview-side">
+                  <div class="framer-browser-mock">
+                    <div class="browser-bar">
+                      <div class="browser-dot-group">
+                        <span class="b-dot close"></span>
+                        <span class="b-dot minimize"></span>
+                        <span class="b-dot expand"></span>
                       </div>
-                      <div class="mini-window drag-element" style="top: 45%; left: 35%;">
-                        <div class="mini-win-header">
-                          <span>Terminal</span>
-                          <span class="mini-win-dot"></span>
+                      <div class="browser-tab">fluxfolio.os</div>
+                    </div>
+                    <div class="browser-viewport p01-viewport">
+                      <div class="mini-desktop">
+                        <div class="mini-window drag-element" style="top: 15%; left: 10%;">
+                          <div class="mini-win-header">
+                            <span>About.txt</span>
+                            <span class="mini-win-dot"></span>
+                          </div>
+                          <div class="mini-win-body">
+                            <p>Hi, I'm Satwik...</p>
+                          </div>
                         </div>
-                        <div class="mini-win-body code-text">
-                          <p>$ npm run dev</p>
-                          <p class="success">> Ready on port 3000</p>
+                        <div class="mini-window drag-element" style="top: 48%; left: 32%;">
+                          <div class="mini-win-header">
+                            <span>Terminal</span>
+                            <span class="mini-win-dot"></span>
+                          </div>
+                          <div class="mini-win-body code-text">
+                            <p>$ npm run dev</p>
+                            <p class="success">> Ready on port 3000</p>
+                          </div>
                         </div>
-                      </div>
-                      <!-- Grid of small icons -->
-                      <div class="mini-icons">
-                        <div class="mini-icon">📁</div>
-                        <div class="mini-icon">🎨</div>
-                        <div class="mini-icon">🎮</div>
+                        <div class="mini-icons">
+                          <div class="mini-icon">📁</div>
+                          <div class="mini-icon">🎨</div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -221,141 +231,122 @@
               </div>
             </div>
 
-            <!-- PROJECT 02 -->
-            <div class="project-showcase" data-cursor="hover-large">
-              <div class="project-info">
-                <div class="project-meta">
-                  <span class="project-number">02</span>
-                  <div class="project-title-group">
-                    <h3 class="project-name">Educational Learning Platform</h3>
-                    <span class="project-tagline">Interactive Knowledge Hub</span>
-                  </div>
-                </div>
+            <!-- GRID FOR PROJECT 02 & PROJECT 03 -->
+            <div class="projects-subgrid">
+              <!-- PROJECT 02: EDUCATIONAL LEARNING PLATFORM -->
+              <div class="project-card project-subcard" data-cursor="hover-large">
+                <span class="card-number">02</span>
                 
-                <p class="project-desc">
-                  An educational web application designed to make learning more engaging through interactive content, intuitive navigation, and modern frontend design. Focused on usability, accessibility, and delivering information in a clear and engaging way.
-                </p>
-
-                <div class="project-highlights">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>Real-time search</li>
-                    <li>Interactive quizzes</li>
-                    <li>Dark mode support</li>
-                    <li>Mobile responsive design</li>
-                  </ul>
-                </div>
-
-                <div class="project-footer">
-                  <div class="project-tech">
-                    <span class="tech-pill">React</span>
-                    <span class="tech-pill">JavaScript</span>
-                    <span class="tech-pill">Tailwind CSS</span>
-                  </div>
-                  <a href="#" class="project-link">
-                    View Project
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="project-preview">
-                <!-- Browser Window Mockup for Learning Platform -->
-                <div class="mock-browser">
-                  <div class="mock-header">
-                    <div class="mock-dots">
-                      <span class="mock-dot red"></span>
-                      <span class="mock-dot yellow"></span>
-                      <span class="mock-dot green"></span>
+                <div class="project-content-wrapper">
+                  <div class="project-info-side">
+                    <div class="project-meta-info">
+                      <h3 class="project-title">Learning Platform</h3>
+                      <span class="project-badge">Interactive Knowledge Hub</span>
                     </div>
-                    <div class="mock-address">academy.learn</div>
+                    
+                    <p class="project-description-text">
+                      An educational web application designed to make learning more engaging through interactive content, intuitive navigation, and modern frontend design. Focused on usability, accessibility, and delivering information clearly.
+                    </p>
+
+                    <div class="project-tech-stack">
+                      <span class="stack-badge">React</span>
+                      <span class="stack-badge">JavaScript</span>
+                      <span class="stack-badge">Tailwind CSS</span>
+                    </div>
+
+                    <div class="project-buttons">
+                      <a href="#" class="btn-primary" data-cursor="hover">
+                        <span>Live Demo</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                      </a>
+                      <a href="https://github.com/1nonlyxSatwik" target="_blank" class="btn-secondary" data-cursor="hover">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span>GitHub</span>
+                      </a>
+                    </div>
                   </div>
-                  <div class="mock-body p02-mock-body">
-                    <!-- Interactive Quiz Card inside preview -->
-                    <div class="quiz-card-mock">
-                      <div class="quiz-badge">QUIZ OF THE DAY</div>
-                      <div class="quiz-question">What does CSS stand for?</div>
-                      <div class="quiz-options">
-                        <div class="quiz-option" data-quiz="wrong">Computer Style Sheets</div>
-                        <div class="quiz-option" data-quiz="correct">Cascading Style Sheets</div>
-                        <div class="quiz-option" data-quiz="wrong">Creative Style Systems</div>
+
+                  <div class="project-preview-side">
+                    <div class="framer-browser-mock">
+                      <div class="browser-bar">
+                        <div class="browser-dot-group">
+                          <span class="b-dot close"></span>
+                          <span class="b-dot minimize"></span>
+                          <span class="b-dot expand"></span>
+                        </div>
+                        <div class="browser-tab">academy.learn</div>
                       </div>
-                      <div class="quiz-feedback">Select an answer to test!</div>
+                      <div class="browser-viewport p02-viewport">
+                        <div class="quiz-card-mock">
+                          <div class="quiz-badge">QUIZ OF THE DAY</div>
+                          <div class="quiz-question">What does CSS stand for?</div>
+                          <div class="quiz-options">
+                            <div class="quiz-option" data-quiz="wrong">Computer Style Sheets</div>
+                            <div class="quiz-option" data-quiz="correct">Cascading Style Sheets</div>
+                          </div>
+                          <div class="quiz-feedback">Select an answer to test!</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- PROJECT 03 -->
-            <div class="project-showcase" data-cursor="hover-large">
-              <div class="project-info">
-                <div class="project-meta">
-                  <span class="project-number">03</span>
-                  <div class="project-title-group">
-                    <h3 class="project-name">AI & Frontend Experiments</h3>
-                    <span class="project-tagline">Prototyping Labs</span>
-                  </div>
-                </div>
+              <!-- PROJECT 03: AI & FRONTEND EXPERIMENTS -->
+              <div class="project-card project-subcard" data-cursor="hover-large">
+                <span class="card-number">03</span>
                 
-                <p class="project-desc">
-                  A collection of experiments exploring modern frontend development, AI-assisted workflows, animations, component systems, and interactive user experiences. Built to learn rapidly and test new ideas.
-                </p>
-
-                <div class="project-highlights">
-                  <h4>Key Features:</h4>
-                  <ul>
-                    <li>Component design systems</li>
-                    <li>Interactive animations</li>
-                    <li>Rapid prototyping</li>
-                    <li>AI-assisted development workflows</li>
-                  </ul>
-                </div>
-
-                <div class="project-footer">
-                  <div class="project-tech">
-                    <span class="tech-pill">React</span>
-                    <span class="tech-pill">TypeScript</span>
-                    <span class="tech-pill">Tailwind CSS</span>
-                    <span class="tech-pill">AI Tools</span>
-                  </div>
-                  <a href="#" class="project-link">
-                    View Project
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="project-preview">
-                <!-- Code Editor/Terminal Mockup for AI Experiments -->
-                <div class="mock-browser mock-terminal">
-                  <div class="mock-header">
-                    <div class="mock-dots">
-                      <span class="mock-dot red"></span>
-                      <span class="mock-dot yellow"></span>
-                      <span class="mock-dot green"></span>
+                <div class="project-content-wrapper">
+                  <div class="project-info-side">
+                    <div class="project-meta-info">
+                      <h3 class="project-title">AI & Frontend Labs</h3>
+                      <span class="project-badge">Prototyping Experiments</span>
                     </div>
-                    <div class="mock-address">terminal.sh</div>
+                    
+                    <p class="project-description-text">
+                      A collection of experiments exploring modern frontend development, AI-assisted workflows, animations, component systems, and interactive user experiences built to test new ideas rapidly.
+                    </p>
+
+                    <div class="project-tech-stack">
+                      <span class="stack-badge">React</span>
+                      <span class="stack-badge">TypeScript</span>
+                      <span class="stack-badge">Tailwind CSS</span>
+                      <span class="stack-badge">AI Tools</span>
+                    </div>
+
+                    <div class="project-buttons">
+                      <a href="#" class="btn-primary" data-cursor="hover">
+                        <span>Live Demo</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                      </a>
+                      <a href="https://github.com/1nonlyxSatwik" target="_blank" class="btn-secondary" data-cursor="hover">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span>GitHub</span>
+                      </a>
+                    </div>
                   </div>
-                  <div class="mock-body p03-mock-body">
-                    <div class="terminal-editor">
-                      <div class="editor-lines">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
+
+                  <div class="project-preview-side">
+                    <div class="framer-browser-mock terminal-mock">
+                      <div class="browser-bar">
+                        <div class="browser-dot-group">
+                          <span class="b-dot close"></span>
+                          <span class="b-dot minimize"></span>
+                          <span class="b-dot expand"></span>
+                        </div>
+                        <div class="browser-tab">terminal.sh</div>
                       </div>
-                      <div class="editor-code">
-                        <p><span class="code-keyword">const</span> <span class="code-name">aiAgent</span> = <span class="code-keyword">new</span> <span class="code-class">Copilot</span>({</p>
-                        <p>&nbsp;&nbsp;creative: <span class="code-value">true</span>,</p>
-                        <p>&nbsp;&nbsp;framework: <span class="code-string">"React"</span></p>
-                        <p>});</p>
-                        <p><span class="code-name">aiAgent</span>.<span class="code-func">generateComponent</span>();</p>
+                      <div class="browser-viewport p03-viewport">
+                        <div class="terminal-editor">
+                          <div class="editor-code">
+                            <p><span class="code-keyword">const</span> <span class="code-name">agent</span> = <span class="code-keyword">new</span> <span class="code-class">Copilot</span>();</p>
+                            <p><span class="code-name">agent</span>.<span class="code-func">runExperiment</span>();</p>
+                          </div>
+                        </div>
+                        <button class="terminal-action-btn" id="btn-run-experiment">Run Experiment</button>
+                        <div class="terminal-output" id="terminal-exp-output">Click run to compile...</div>
                       </div>
                     </div>
-                    <button class="terminal-action-btn" id="btn-run-experiment">Run Experiment</button>
-                    <div class="terminal-output" id="terminal-exp-output">Click run to compile and run...</div>
                   </div>
                 </div>
               </div>
