@@ -1120,13 +1120,13 @@ body.theme-dark .bio-content { color: #A0A0B2; }
 }
 
 .envelope-container.is-open .envelope-top {
-  transform: translateY(-900px) rotateX(10deg);
+  transform: translateY(-120px) rotateX(10deg);
   opacity: 1; /* Keep visible */
   pointer-events: auto; /* Keep clickable */
 }
 
 .envelope-container.is-open .envelope-bottom {
-  transform: translateY(900px) rotateX(-10deg); /* Adjust throw distance */
+  transform: translateY(1160px) rotateX(-10deg); /* Adjust throw distance */
   opacity: 1; /* Keep visible */
   pointer-events: auto; /* Keep clickable */
 }
@@ -1185,6 +1185,7 @@ body.theme-dark .bio-content { color: #A0A0B2; }
   max-height: 2000px; /* Massive height for scroll freedom */
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 240px; /* Leave space for envelope top flap */
   padding-right: 20px; /* Space for potential scrollbar */
   padding-bottom: 300px; /* Huge extra space at bottom */
   scrollbar-width: thin;
@@ -1376,6 +1377,18 @@ body.theme-dark .card-desc {
   
   .envelope-container.is-open {
     height: 1000px; /* Limit expansion height on mobile to keep timeline inside view */
+  }
+  
+  .envelope-container.is-open .envelope-top {
+    transform: translateY(-60px) rotateX(10deg);
+  }
+  
+  .envelope-container.is-open .envelope-bottom {
+    transform: translateY(600px) rotateX(-10deg);
+  }
+
+  .envelope-container.is-open .envelope-content {
+    padding-top: 160px; /* Adjust padding-top on mobile for the smaller flap */
   }
   
   .envelope-half {
@@ -3133,6 +3146,7 @@ body.theme-dark .project-card:hover .stack-badge {
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-wrap: wrap; /* Prevent overflow on small screens */
 }
 
 .btn-primary {
@@ -3624,6 +3638,15 @@ body.theme-dark .closing-text {
   }
   .project-featured {
     padding: 30px;
+  }
+  .project-subcard {
+    padding: 24px; /* Give more horizontal room to prevent overflow */
+  }
+  .project-title {
+    font-size: 26px; /* Slightly smaller to fit mobile screens */
+  }
+  .project-preview-side {
+    height: 220px; /* Shorter for mobile layout aspect ratio */
   }
   .project-card-badge {
     position: relative;
