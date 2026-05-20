@@ -1374,6 +1374,10 @@ body.theme-dark .card-desc {
     height: 400px;
   }
   
+  .envelope-container.is-open {
+    height: 1000px; /* Limit expansion height on mobile to keep timeline inside view */
+  }
+  
   .envelope-half {
     height: 200px;
   }
@@ -1415,6 +1419,7 @@ body.theme-dark .card-desc {
   
   .timeline-items {
     gap: 60px;
+    padding-bottom: 120px; /* Reduced from 400px to remove excessive empty space on mobile */
   }
 }
 
@@ -2719,7 +2724,7 @@ body.theme-dark .card-desc {
 /* --- MOBILE (Up to 500px) --- */
 @media (max-width: 500px) {
   .vnav { bottom: 15px; padding: 8px 16px; gap: 6px; }
-  .vnav-link { width: 40px; height: 40px; }
+  .vnav-link { width: 44px; height: 44px; } /* Kept at 44px for touch target accessibility */
   .vnav-link svg { width: 18px; height: 18px; }
 
   .hero { min-height: 100vh; }
@@ -2737,6 +2742,38 @@ body.theme-dark .card-desc {
   .cc-name { font-size: 24px !important; }
   .cc-photo { height: 160px; }
   .cc-info .cc-role { margin-bottom: 12px; }
+
+  /* Expanded Mini Card responsive overrides */
+  .mini-card.full-view {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 20px;
+  }
+  .cc-close {
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
+    font-size: 14px;
+  }
+  .cc-header {
+    margin-bottom: 12px;
+  }
+  .cc-photo {
+    height: 130px;
+    margin-bottom: 16px;
+  }
+  .cc-info .cc-name {
+    font-size: 24px !important;
+  }
+  .cc-role {
+    font-size: 13px;
+    margin: 4px 0 16px;
+  }
+  .cc-details {
+    padding-top: 12px;
+  }
+  .cc-item {
+    margin-bottom: 10px;
+  }
 
   .resume-actions { top: 15px; right: 15px; gap: 8px; }
   .resume-btn, .cv-options-btn { padding: 6px 12px; font-size: 11px; }
@@ -2762,7 +2799,11 @@ body.theme-dark .card-desc {
 @media (hover: none) {
   .cursor, .cursor-dot { display: none !important; }
   body { cursor: auto !important; }
-  .vnav-link:hover, .tile:hover, .drag-item:hover, .folder:hover .folder-label { transform: none !important; }
+  .vnav-link:hover, .tile:hover, .drag-item:hover, .folder:hover .folder-label, .cv-options-btn:hover, .resume-btn:hover { transform: none !important; }
   .tile:hover .tile-bg { transform: none !important; }
+  .cv-dropdown-item:hover { background: transparent !important; }
+  .cv-dropdown-item:active { background: rgba(0,0,0,0.05) !important; }
+  body.theme-dark .cv-dropdown-item:hover { background: transparent !important; }
+  body.theme-dark .cv-dropdown-item:active { background: rgba(255,255,255,0.08) !important; }
 }
 
