@@ -563,6 +563,17 @@ vnavLinks.forEach((link) => {
   if (!id || !id.startsWith('#')) return;
   const target = document.querySelector(id);
   if (!target) return;
+
+  // Smooth scroll using Lenis when clicked
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (typeof lenis !== 'undefined' && lenis) {
+      lenis.scrollTo(target);
+    } else {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
   ScrollTrigger.create({
     trigger: target,
     start: 'top 40%',
