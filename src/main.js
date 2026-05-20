@@ -527,7 +527,7 @@ gsap.from('.hero-tip', { y: -10, opacity: 0, duration: 1, ease: 'power2.out', de
 
 // Sidebar entrance
 gsap.from('.sidebar > *', { x: -20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
-gsap.from('.resume-btn', { y: -10, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.5 });
+gsap.from('.resume-actions', { y: -10, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.5 });
 
 // Signature parallax
 gsap.to('.signature', {
@@ -690,4 +690,74 @@ document.querySelectorAll('.mini-card').forEach(card => {
       ScrollTrigger.refresh();
     }, 850);
   });
+})();
+
+/* =========================================
+   CV OPTIONS DROPDOWN INTERACTION
+   ========================================= */
+(function initCVDropdown() {
+  const dropdownContainer = document.querySelector('.cv-dropdown-container');
+  const optionsBtn = document.querySelector('.cv-options-btn');
+  const copyCVBtn = document.querySelector('.copy-cv-link');
+  const scrollToResumeBtn = document.querySelector('.scroll-to-resume');
+
+  if (!dropdownContainer || !optionsBtn) return;
+
+  // Toggle dropdown on options button click
+  optionsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownContainer.classList.toggle('is-open');
+    optionsBtn.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownContainer.contains(e.target)) {
+      dropdownContainer.classList.remove('is-open');
+      optionsBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Copy CV Link interaction
+  if (copyCVBtn) {
+    copyCVBtn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const cvUrl = window.location.origin + '/Satwik_Mani_Tripathi_CV.pdf';
+      try {
+        await navigator.clipboard.writeText(cvUrl);
+        copyCVBtn.classList.add('copied');
+        const originalHTML = copyCVBtn.innerHTML;
+        copyCVBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Link Copied!
+        `;
+        setTimeout(() => {
+          copyCVBtn.classList.remove('copied');
+          copyCVBtn.innerHTML = originalHTML;
+        }, 1500);
+      } catch (err) {
+        console.error('Failed to copy link: ', err);
+      }
+      dropdownContainer.classList.remove('is-open');
+      optionsBtn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Smooth scroll to experience section
+  if (scrollToResumeBtn) {
+    scrollToResumeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownContainer.classList.remove('is-open');
+      optionsBtn.setAttribute('aria-expanded', 'false');
+      
+      const target = document.getElementById('exp');
+      if (target) {
+        if (typeof lenis !== 'undefined' && lenis) {
+          lenis.scrollTo(target);
+        } else {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
 })();

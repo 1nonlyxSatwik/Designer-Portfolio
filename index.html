@@ -80,11 +80,41 @@
         </div>
       </aside>
 
-      <!-- RESUME BUTTON -->
-      <a href="/Satwik_Mani_Tripathi_CV.pdf" download="Satwik_Mani_Tripathi_CV.pdf" class="resume-btn" data-cursor="hover" style="text-decoration: none; color: inherit;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
-        Resume
-      </a>
+      <!-- RESUME & CV OPTIONS -->
+      <div class="resume-actions">
+        <a href="/Satwik_Mani_Tripathi_CV.pdf" download="Satwik_Mani_Tripathi_CV.pdf" class="resume-btn" data-cursor="hover" style="text-decoration: none; color: inherit;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+          Resume
+        </a>
+        <div class="cv-dropdown-container">
+          <button class="cv-options-btn" data-cursor="hover" aria-expanded="false" aria-haspopup="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-dasharray="" stroke-width="2">
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              <circle cx="12" cy="5" r="1.5" fill="currentColor"/>
+              <circle cx="12" cy="19" r="1.5" fill="currentColor"/>
+            </svg>
+            CV Options
+          </button>
+          <div class="cv-dropdown-menu">
+            <a href="/Satwik_Mani_Tripathi_CV.pdf" target="_blank" class="cv-dropdown-item" data-cursor="hover">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7Z"/></svg>
+              View PDF in Browser
+            </a>
+            <a href="/Satwik_Mani_Tripathi_CV.pdf" download="Satwik_Mani_Tripathi_CV.pdf" class="cv-dropdown-item" data-cursor="hover">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+              Download PDF
+            </a>
+            <button class="cv-dropdown-item copy-cv-link" data-cursor="hover">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Link to CV
+            </button>
+            <button class="cv-dropdown-item scroll-to-resume" data-cursor="hover">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14l-7 7-7-7M12 21V3"/></svg>
+              View Experience
+            </button>
+          </div>
+        </div>
+      </div>
 
       <!-- MAIN CONTENT -->
       <main class="main">
